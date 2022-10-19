@@ -1,0 +1,14 @@
+{
+  "app.beta" : false,
+  "app.hideMenubarIcon" : false,
+  "app.preferredTerminal" : "Alacritty",
+  "autocomplete.disable" : false,
+  "autocomplete.fuzzySearch" : true,
+  "autocomplete.immediatelyRunGitAliases" : false,
+  "autocomplete.keybindings.enter" : "insertSelected",
+  "autocomplete.keybindings.insertCommonPrefixOrNavigateDown" : "tab",
+  "autocomplete.keybindings.insertSelected" : "tab",
+  "autocomplete.keybindings.tab" : "insertCommonPrefix",
+  "autocomplete.theme" : "dracula",
+  "telemetry.disabled" : true
+}

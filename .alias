@@ -1,0 +1,73 @@
+# Navegação
+alias ~='cd ~'
+alias o='open'
+alias ..='cd ..'
+
+# iOS development
+alias xco='open -a Xcode .'
+alias xcop='open -a Xcode-14.1.0-release-candidate.app *.xcodeproj'
+alias xbo='open -a /Applications/Xcode-beta.app .'
+
+# pods
+alias pii='pod install'
+alias pi='pod install && xco'
+alias xt='xctool test'
+
+# git basic
+alias g='git'
+alias gb='git branch'
+alias gs='git status --short'
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcn='git commit --amend --no-edit'
+alias gp='git push'
+alias gl='git pull'
+alias gch='git checkout'
+alias gchp='git checkout -p'
+alias gch.='git checkout .'
+alias gch-='git checkout -'
+alias gnb='git checkout -b'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gm='git merge'
+alias gr='git rebase'
+alias gri='git rebase -i'
+alias gf='git fetch'
+alias gfr='git fetch --all && git rebase origin/develop'
+alias gfrm='git fetch -all && git rebase origin/master'
+alias gt='git tag'
+alias gmm='git merge --no-ff -e'
+alias gcp='git cherry-pick'
+alias glgr='git log --oneline --reverse'
+alias grbc='git rebase --continue'
+alias gsh='git show head'
+
+# See https://coderwall.com/p/euwpig
+alias glg="git log \
+  --graph \
+  --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an%Creset' \
+  --abbrev-commit"
+
+gcam_cmd='git commit -a -m'
+alias gpt="git push; git push --tags"
+
+# List the 10 most recent branches
+alias grb="git branch --sort=committerdate | tail -10 | more"
+
+# JavaScript & TypeScript
+
+# Apps
+alias fox='open -a Firefox.app'
+alias v='vim'
+alias ww='vim -c VimwikiIndex'
+alias cask='brew cask'
+
+# Fastlane
+alias f='fastlane'
+alias pb='pbcopy'
+
+# Utils
+alias cat='bat'
+alias md=mkdir
