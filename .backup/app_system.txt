@@ -1,0 +1,113 @@
+1Password 7.app
+Alacritty.app
+Alfred 5.app
+Alfred.app
+Android Studio.app
+Anki.app
+AppDab.app
+AppIconBuilder.app
+Apple Configurator.app
+Background Music.app
+Bar None.app
+Bitwarden.app
+Bookmark.app
+Boop.app
+Chromium.app
+Clean Me.app
+Codepad.app
+Codye.app
+Control Room.app
+Daily Menu.app
+Day One.app
+Dependencies.app
+DevCleaner.app
+Developer.app
+DintFeed.app
+Discord.app
+Docker.app
+Fig.app
+Figr.app
+Firefox.app
+Flippy.app
+Freshy.app
+Geany.app
+Get Sauce.app
+HextEdit.app
+Iconery.app
+Install Figma Agent.app
+Inventory.app
+Jiffy.app
+JustButton.app
+KeePassXC.app
+KeeWeb.app
+Key Codes.app
+Keyboard Keyboard.app
+Keynote.app
+Lockdown.app
+Mactracker.app
+Marked 2.app
+Menumarks.app
+Microsoft Teams.app
+Minecraft.app
+Monodraw.app
+Nautomate.app
+NetNewsWire.app
+Notion.app
+Numbers.app
+OBS.app
+OWASP ZAP.app
+Obsidian.app
+One Thing.app
+Ono-Fast Card Game Fun.app
+Page Pin.app
+Pages.app
+PanWriter.app
+Pastel.app
+Pastery.app
+Planny.app
+Playgrounds.app
+Prime Video.app
+Quideo.app
+Quivert.app
+ReadKit.app
+Rectangle.app
+RocketSim.app
+SF Symbols.app
+Safari Technology Preview.app
+Safari.app
+Self Service.app
+Shazam.app
+Shortcat.app
+SimpleLogin.app
+Simplenote.app
+Sketch.app
+Snap Camera.app
+Speedtest.app
+Stats.app
+Steam.app
+Structured.app
+StudyCards.app
+SwiftFormat for Xcode.app
+Swiftify for Xcode.app
+System Watcher.app
+Telegram Lite.app
+Telegram.app
+TestFlight.app
+Timetable.app
+Todoist.app
+Tot.app
+Transporter.app
+Trello.app
+Typora.app
+Utilities
+VLC.app
+VSCodium.app
+Visual Studio Code.app
+Xcode-14.0.0-Release.Candidate.app
+Xcode-14.0.0.app
+Xcode-14.0.1-Release.Candidate.app
+Xcode.app
+Xcodes.app
+iMovie.app
+kitty.app
+zoom.us.app
