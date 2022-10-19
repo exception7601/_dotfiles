@@ -1,0 +1,24 @@
+[user]
+	name = anderson
+	email = 77030548+4nd-xyz@users.noreply.github.com 
+	signingkey = CAA0E958B9CD0DCA
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+	excludesfile = /Users/anderson/.gitignore_global
+	pager = less -FXR
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+[alias]
+	df = !git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME
