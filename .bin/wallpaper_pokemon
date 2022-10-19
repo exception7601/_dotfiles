@@ -1,0 +1,28 @@
+#!/bin/bash
+# @Notes: Automatiza processo de troca de wallpaper de pokemon
+# com base em número aleatorio (1 - 890)  extrai o link do banco
+# de imagens para fazer o downalod subtitui a imagens antiga do obs
+# @Autor: anderson
+# @Data.: 09/04/21
+#####################
+
+#DIR_ICLOUD="/Users/anderson/Library/Mobile Documents/com~apple~CloudDocs/Wallpaper"
+DIR_ICLOUD="/Users/anderson/Pictures/Wallpaper_pokemon"
+
+while [ -z $LINK_WALLPAPER ] || [[ ${NUMBER}${NAME_POKEMON}1920x1200.jpg == $LIST_NAMES ]]
+do
+  NUMBER=$(curl "https://www.random.org/integers/?num=1&min=1&max=890&col=1&base=10&format=plain&rnd=new" 2> /dev/null)
+  
+  LINK_WALLPAPER=$(grep -Eo "https://[a-zA-Z0-9./*/*/]*1920x1200.jpg" <<< \
+    $(curl -L "https://pokewalls.wordpress.com/$NUMBER" 2> /dev/null) | sort --unique)
+  # https://pokewalls.wordpress.com/?random link aleatorio do site
+
+  NAME_POKEMON=$(sed -r 's#.*"species":\{"name":"?([^,"]*)"?.*#\1#' <<< \
+    $(curl --location --request GET "https://pokeapi.co/api/v2/pokemon/$NUMBER" 2> /dev/null))
+  
+  LIST_NAMES=$(ls -1 "$DIR_ICLOUD" | grep -w "${NUMBER}${NAME_POKEMON}1920x1200.jpg")
+  echo $NUMBER - $NAME_POKEMON
+done
+
+curl $LINK_WALLPAPER > "$DIR_ICLOUD/${NUMBER}${NAME_POKEMON}1920x1200.jpg" 2> /dev/null
+cp "$DIR_ICLOUD/${NUMBER}${NAME_POKEMON}1920x1200.jpg" "$DIR_ICLOUD/obs_wallpaper.jpg"
