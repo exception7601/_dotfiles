@@ -1,0 +1,9 @@
+git_protocol: ssh
+editor: vim
+prompt: enabled
+pager: 
+aliases:
+    co: pr checkout
+    repo-delete: api -X DELETE "repos/$1"
+    merge: pr merge
+http_unix_socket:
