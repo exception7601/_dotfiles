@@ -1,7 +1,7 @@
 git_protocol: ssh
 editor: vim
 prompt: enabled
-pager: 
+pager:
 aliases:
     co: pr checkout
     repo-delete: api -X DELETE "repos/$1"
