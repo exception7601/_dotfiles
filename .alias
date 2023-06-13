@@ -69,5 +69,16 @@ alias f='fastlane'
 alias pb='pbcopy'
 
 # Utils
-alias cat='bat'
+#alias cat='bat'
 alias md=mkdir
+
+# mist
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias pinentry='pinentry-mac'
+
+cpr() {
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
+} 
+mvr() {
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
+}
