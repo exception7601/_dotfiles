@@ -1,7 +1,7 @@
 [user]
 	name = anderson
-	email = 77030548+4nd-xyz@users.noreply.github.com 
-	signingkey = CAA0E958B9CD0DCA
+	email = 77030548+4nd3r5on@users.noreply.github.com
+	signingkey = 96B1FAD1C0AEF657
 [commit]
 	gpgsign = true
 [init]
