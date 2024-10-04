@@ -1,0 +1,37 @@
+#!/bin/zsh
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(find $HOME $HOME/Projects -mindepth 1 -maxdepth 1 -type d | fzf)
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+echo "--> $selected"
+if [[ -z $selected ]]; then
+  echo "Not Seleciton Directory"
+  exit 0
+fi
+
+# Cria uma nova section
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+  tmux new-session -s $selected_name -c $selected
+  echo "new-session $selected_name"
+  exit 0
+fi
+
+# Se ja estou dentro do tmux criar um dispatch section
+if ! tmux has-session -t=$selected_name 2> /dev/null; then
+  echo "background-new-session $selected_name"
+  tmux new-session -ds $selected_name -c $selected
+fi
+
+echo "attach-session $selected_name"
+if [[ -z $TMUX ]]; then
+  tmux switch-client -t $selected_name
+fi
+
+# Muda pra section existente 
+tmux attach -t $selected_name

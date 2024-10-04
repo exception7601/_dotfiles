@@ -1,0 +1,10 @@
+.bundle/
+.rbenv/
+.swiftpm/
+.cocoapods/
+.npm/
+.DS_Store
+Applications
+Games
+Library
+.local/share/

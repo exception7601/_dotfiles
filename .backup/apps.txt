@@ -1,61 +1,28 @@
 Alacritty.app
-Alfred 5.app
-AltServer.app
-Background Music.app
-Bitwarden.app
-Boop.app
-Clean Me.app
-Codye.app
-Dash.app
-Dependencies.app
-DevCleaner.app
-Developer.app
-Discord.app
+AppCleaner.app
+Aware.app
+Coffee Buzz.app
+Color Picker.app
 Discovery.app
-Fig.app
-Figma.app
-Firefox.app
-Google Chrome.app
-HextEdit.app
-IINA.app
+Display Menu.app
+Hammerspoon.app
+Hand Mirror.app
+HandBrake.app
+Hot.app
 ImageOptim.app
-Infuse.app
-Interactful.app
-Keynote.app
-LuLu.app
-Minecraft.app
+KeyCastr.app
+Macs Fan Control.app
 NetNewsWire.app
-Netiquette.app
-Numbers.app
 OBS.app
-Pages.app
-Proxyman.app
-Rectangle.app
-RocketSim.app
+PiP.app
+Plash.app
 SF Symbols.app
 Safari Technology Preview.app
-Safari.app
 Shortcat.app
-SimpleLogin.app
 Speedtest.app
-Stats.app
-Steam ROM Manager.app
-Steam.app
 Sublime Text.app
-Telegram.app
-TestFlight.app
-The Unarchiver.app
-Tutanota Desktop.app
+Tailscale.app
 UTM.app
 Userscripts.app
-Utilities
-VLC.app
-Visual Studio Code.app
-WhatsApp.app
-Whisky.app
-WireGuard.app
-Wireshark.app
-Xcode-15.0.0-beta.app
-Xcodes.app
-emuladores
-mpv.app
+_Xcodes.app
+iOS App Signer.app
