@@ -7,3 +7,4 @@ aliases:
     repo-delete: api -X DELETE "repos/$1"
     merge: pr merge
 http_unix_socket:
+version: "1"

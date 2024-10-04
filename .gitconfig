@@ -1,13 +1,13 @@
 [user]
-	name = anderson
-	email = 77030548+4nd3r5on@users.noreply.github.com
-	signingkey = 96B1FAD1C0AEF657
+	name = exception7601
+	email = 77030548+exception7601@users.noreply.github.com
+	signingkey = 909B8651397BBD4F
 [commit]
 	gpgsign = true
 [init]
 	defaultBranch = main
 [core]
-	editor = vim
+	editor = nvim 
 	excludesfile = /Users/anderson/.gitignore_global
 	pager = less -FXR
 [filter "lfs"]
@@ -20,5 +20,10 @@
 
 [push]
 	autoSetupRemote = true
+	default = simple
+
 [alias]
-	df = !git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME
+	df = !git --git-dir=$HOME/.cfg/ --work-tree=$HOME
+
+[credentials]
+ 	helper = osxkeychain
