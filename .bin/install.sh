@@ -1,10 +1,10 @@
 #!/bin/bash 
 # install script dotfiles
 
-git clone --bare git@github.com:4nd-xyz/dotfiles.git "$HOME/.dotfiles"
+git clone --bare https://github.com/exception7601/dotfiles.git "$HOME/.cfg"
 
 function dotfiles {
-  /usr/bin/git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" "$@"
+  /usr/bin/git --git-dir="$HOME"/.cfg/ --work-tree="$HOME" "$@"
 }
 
 mkdir -p .backup

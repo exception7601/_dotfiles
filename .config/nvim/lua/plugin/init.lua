@@ -1,0 +1,8 @@
+require("plugin.telescope")
+require("plugin.treesitter")
+require("plugin.harpoon2")
+require("plugin.lsp")
+require("plugin.lint")
+require("plugin.trouble")
+require("plugin.snippets")
+require("plugin.fugitive")

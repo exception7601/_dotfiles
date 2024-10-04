@@ -4,8 +4,8 @@ alias o='open'
 alias ..='cd ..'
 
 # iOS development
-alias xco='open -a Xcode .'
-alias xcop='open -a Xcode-14.1.0-release-candidate.app *.xcodeproj'
+alias xco='open -a /Applications/Xcode.app .'
+alias xcop='open -a /Applications/Xcode.app *.xcodeproj'
 alias xbo='open -a /Applications/Xcode-beta.app .'
 
 # pods
@@ -50,7 +50,7 @@ alias glg="git log \
   --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) %an%Creset' \
   --abbrev-commit"
 
-gcam_cmd='git commit -a -m'
+alias gcam_cmd='git commit -a -m'
 alias gpt="git push; git push --tags"
 
 # List the 10 most recent branches
@@ -60,8 +60,8 @@ alias grb="git branch --sort=committerdate | tail -10 | more"
 
 # Apps
 alias fox='open -a Firefox.app'
+alias n='nvim'
 alias v='vim'
-alias ww='vim -c VimwikiIndex'
 alias cask='brew cask'
 
 # Fastlane
@@ -76,9 +76,45 @@ alias md=mkdir
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias pinentry='pinentry-mac'
 
+# tmux
+alias ts='tmux new-session -A -D -s'
+alias disable_dns='ssh openwrt control_dnat'
+
+# Paste content of file to clipboard
+pastetoclipboard() {
+  cat $1 | pbcopy
+}
+alias pbc=pastetoclipboard
+
+# Apache Bench for simple load testing 
+alias _ab='ab -n 100 -c 10'
+
+alias _pdftohtml='pdftohtml -c -s -noframes -nodrm -p' 
+
+alias _tv='adb connect tv.4nd.xyz:5555'
+
+# Download playlist music 
+alias _yt-dlp='yt-dlp \
+              -f "ba[ext=m4a]" \
+              --ignore-errors --continue \
+              --no-overwrites --embed-metadata \
+              --embed-thumbnail \
+              --download-archive videos.txt'
+
 cpr() {
   rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
 } 
 mvr() {
   rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
+}
+
+# tat: tmux attach
+function tmux-project {
+  name=$(basename `pwd` | sed -e 's/\.//g')
+
+  if tmux ls 2>&1 | grep "$name"; then
+    tmux attach -t "$name"
+  else
+    tmux new-session -s "$name"
+  fi
 }
