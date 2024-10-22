@@ -74,7 +74,7 @@ alias md=mkdir
 
 # mist
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias pinentry='pinentry-mac'
+# alias pinentry='pinentry-mac'
 
 # tmux
 alias ts='tmux new-session -A -D -s'
@@ -92,14 +92,9 @@ alias _ab='ab -n 100 -c 10'
 alias _pdftohtml='pdftohtml -c -s -noframes -nodrm -p' 
 
 alias _tv='adb connect tv.4nd.xyz:5555'
-
 # Download playlist music 
-alias _yt-dlp='yt-dlp \
-              -f "ba[ext=m4a]" \
-              --ignore-errors --continue \
-              --no-overwrites --embed-metadata \
-              --embed-thumbnail \
-              --download-archive videos.txt'
+alias _yt-dlp="yt-dlp --config-locations $HOME/.config/yt-dlp/playlist"
+alias yt-dla="yt-dlp --config-locations $HOME/.config/yt-dlp/ariac"
 
 cpr() {
   rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
