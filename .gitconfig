@@ -8,7 +8,6 @@
 	defaultBranch = main
 [core]
 	editor = nvim 
-	excludesfile = /Users/anderson/.gitignore_global
 	pager = less -FXR
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -21,9 +20,3 @@
 [push]
 	autoSetupRemote = true
 	default = simple
-
-[alias]
-	df = !git --git-dir=$HOME/.cfg/ --work-tree=$HOME
-
-[credentials]
- 	helper = osxkeychain

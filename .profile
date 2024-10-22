@@ -1,3 +1,31 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# the default umask is set in /etc/profile; for setting the umask
+# for ssh logins, install and configure the libpam-umask package.
+#umask 022
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+        . "$HOME/.bashrc"
+    fi
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 export BROWSER=open
 export EDITOR=nvim
 export VISUAL=nvim
@@ -13,20 +41,6 @@ fi
 export PAGER=less
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
-# Was jre before, but became jbr # Get rid of Fastlane noise
-export FASTLANE_SKIP_UPDATE_CHECK=1
-export FASTLANE_HIDE_CHANGELOG=1
-export FASTLANE_HIDE_PLUGINS_TABLE=1
-export FASTLANE_SKIP_ACTION_SUMMARY=1
-# This is useful only if your work in the Automattic Mobile Platform team ^-^'
-#
-# See
-# https://github.com/wordpress-mobile/release-toolkit/blob/984a1854b42641daf43b29aa7ae36d0961be8f59/lib/fastlane/plugin/wpmreleasetoolkit/helper/interactive_prompt_reminder.rb#L10-L18
-export FASTLANE_PROMPT_REMINDER_MESSAGE=1
-
-# Java Path 
-export JAVA_HOME=/Contents/Home
-export XDG_CONFIG_HOME=/Users/anderson/.config
 export GH_PAGER=cat
 export GIT_PAGER=cat
 
@@ -44,3 +58,7 @@ export SAVEHIST=1000
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 # export LSCOLORS=GxFxCxDxBxegedabagaced
+#
+#
+
+if [ -e /home/pi/.nix-profile/etc/profile.d/nix.sh ]; then . /home/pi/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
