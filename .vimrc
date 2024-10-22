@@ -1,3 +1,4 @@
+
 filetype plugin on
 setlocal tabstop=2 shiftwidth=2 expandtab
 set ts=2 sw=2 sts=2 et
@@ -94,6 +95,18 @@ vnoremap > >gv
 nnoremap <C-s> :w<CR>
 
 
+call plug#begin()
+" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+" Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+
+Plug 'junegunn/vim-plug'
+Plug 'rose-pine/vim'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+call plug#end()
+
 " PLUGIN: FZF
 nnoremap <C-p> :FzfGFiles<CR>
 nnoremap <Leader>pf :FzfFiles<CR>
@@ -101,11 +114,8 @@ nnoremap \ :FzfRg<CR>
 
 nnoremap <Leader>gs :Git<CR>
 
-if filereadable(expand("~/.vimrc.plugs"))
-  call plug#begin('~/.vim/plugged')
-  source ~/.vimrc.plugs
-  call plug#end()
-endif
+"if filereadable(expand("~/.vimrc.plugs"))
+" endif
 
 "
 " Spell checking settings
@@ -192,8 +202,6 @@ command! -bang -nargs=* Rg call fzf#vim#grep(
   \   fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-
-
 set background=dark
 colorscheme rosepine_moon 
 hi Normal guibg=NONE ctermbg=NONE
@@ -201,7 +209,6 @@ hi Normal guibg=NONE ctermbg=NONE
 
 " configure comments in vimcript
 autocmd FileType vimscript setlocal commentstring="\ %s
-
 
 " Source Vim configuration file and install plugins
 " via https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
@@ -217,25 +224,6 @@ set nowritebackup
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
 set updatetime=300
-
-" COC  Use <c-space> to trigger completion
-inoremap <silent><expr> <c-@> coc#refresh()
-
-" Use tab for trigger completion with characters ahead and navigate
-" NOTE: There's always complete item selected by default, you may want to enable
-" no select by `"suggest.noselect": true` in your configuration file
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make Enter <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1

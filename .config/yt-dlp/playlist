@@ -1,0 +1,17 @@
+--user-agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0"
+--cookies-from-browser firefox
+
+# Save all videos under YouTube directory in your home directory
+-o ~/Music/%(title)s.%(ext)s
+
+-f 'ba[ext=m4a]' 
+
+--ignore-errors 
+--continue
+--no-overwrites
+
+--embed-metadata
+--embed-thumbnail
+
+--download-archive ~/Music/videos.txt
+
