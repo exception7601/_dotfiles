@@ -11,7 +11,6 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
-
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
@@ -19,7 +18,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -91,7 +90,6 @@ vim.api.nvim_create_autocmd("BufRead", {
 -- Complete for insertion mode CTRL-Nou CTRL-P
 vim.opt.complete = "kspell"
 
-
 -- Files Type
 -- Highlight Podfile, Fastfile, etc. as a Ruby file
 
@@ -107,7 +105,7 @@ local filetypes = {
 }
 
 vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-  pattern = filetypes, 
+  pattern = filetypes,
   callback = function()
     vim.bo.filetype = "ruby"
   end,
@@ -133,8 +131,14 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
   pattern = "*.swift",
   callback = function ()
     vim.opt_local.commentstring = '// %s'
+    vim.opt_local.tabstop = 2
+    vim.opt_local.softtabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.expandtab = true
   end
 })
 
 -- Ativar divisões verticais por padrão
 vim.opt.splitright = true
+
+

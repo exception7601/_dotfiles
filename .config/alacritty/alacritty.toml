@@ -1,15 +1,19 @@
-import = ["/Users/anderson/.config/alacritty/dracula.toml"]
-live_config_reload = true
+general.import = ["/Users/anderson/.config/alacritty/dracula.toml"]
+general.live_config_reload = true
+
+[terminal.shell]
+program = "/bin/zsh"
+args = ["--login", "-c", "tmux new -A -s 0"]
 
 [window]
-opacity = 0.85
+opacity = 1
 decorations = "full"
 
 [colors]
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 19
+size = 20
 
 [font.normal]
 family = "SF Mono"
@@ -17,47 +21,36 @@ style = "Light"
 
 [keyboard]
 bindings = [
-
+  # tmux leader alias: Ctrl-b
+  # { key = "B", mods = "Command", chars = "\u0000" },
   # Option + ← para pular uma palavra para a esquerda
-  { key = "Left", mods = "Option", chars = "∫" },   
+  # { key = "Left", mods = "Option", chars = "∫" },   
   # Option + → para pular uma palavra para a direita
-  { key = "Right", mods = "Option", chars = "ƒ" },  
-  
+  # { key = "Right", mods = "Option", chars = "ƒ" },  
   { key = "Return", mods = "Shift|Command", action = "CreateNewWindow" },
 
   # vim bindings move lines
   { key = "]", mods = "Option|Command", chars = "g]" },
   { key = "[", mods = "Option|Command", chars = "g[" },
   
-  # vim mode tabs <-->
-  { key = "h", mods = "Command|Shift", chars = "gT" },
-  { key = "l", mods = "Command|Shift", chars = "gt" },
-
   #save vim buffer
-  { key = "S", mods =  "Command", chars = "\u001b\u003a\u0077\u000a" }, 
-  
-  # auto commentary
-  # { key = "/", mods =  "Command", chars = " /" }, 
+  { key = "S", mods =  "Command", chars = "\u001b\u003a\u0077\u000a" },
+
+  { key = "/", mods =  "Command", chars = "g/" }, 
   # tmux bindings usar 4-digit hex code
 
-  # rename the current  window
-  { key = "<", mods = "Command|Shift", chars = "\u0002," }, 
-  
-  # make new window
+  # tmux create window: Ctrl-b c
   { key = "T", mods = "Command", chars = "\u0002c" }, 
 
-  # split window vertically
+  # tmux split vertical: Ctrl-b %
   { key = "V", mods = "Command|Shift", chars = "\u0002\"" }, 
-  
-  # split window horizontally
-  { key = "Z", mods = "Command|Shift", chars = "\u0002%" },
-  
-  # kill the current pane
-  { key = "W", mods = "Command", chars = "\u0002x" }, 
-  { key = "/", mods = "Option|Shift", chars = "\u0002?" }, # help shortcut tmux
 
-  # Nao lembro pra que verve esse atalho Ctrl+c
-  # { key = "A", mods = "Command", chars = "\u0003" },
+  # tmux split horizontal: Ctrl-b "
+  { key = "H", mods = "Shift|Command", chars = "\u0002%" },
+
+  # tmux kill the current window &
+  { key = "W", mods = "Command", chars = "\u0002&" }, 
+  { key = "/", mods = "Option|Shift", chars = "\u0002?" }, # help shortcut tmux
 
    # select window 
   { key = "Key1", mods = "Command", chars = "\u00021" },
@@ -67,58 +60,12 @@ bindings = [
   { key = "Key5", mods = "Command", chars = "\u00025" },
   { key = "Key6", mods = "Command", chars = "\u00026" },
 
-  # Hide Panel
-  # { key = ">", mods = "Command|Shift", chars = "\u0002g" },
-  
-  # move panel 
-  # { key = "K", mods = "Command|Shift", chars = "\u0002\u000f700" },
-  # { key = "J", mods = "Command|Shift", chars = "\u0002\u000f701" },
-  # { key = "H", mods = "Command|Shift", chars = "\u0002\u000f702" },
-  # { key = "K", mods = "Command|Shift", chars = "\u0002\u000f703" },
-
-  # move panel
-  { key = "k", mods = "Option|Shift", chars = "\u0002k" },
-  { key = "j", mods = "Option|Shift", chars = "\u0002j" },
-  { key = "h", mods = "Option|Shift", chars = "\u0002h" },
-  { key = "l", mods = "Option|Shift", chars = "\u0002l" },
-
-  #  Control+B ; move o focus para o panel antetior
-  { key = "O", mods = "Command|Shift", chars = "\u0002;" },
-  # move o focus para o entre os paneis 
-  { key = "O", mods = "Command", chars = "\u0002o" },
-
-  # enter de comand mode
-  { key = ":", mods = "Command|Shift", chars = "\u0002:" },
-
-  # toggle full screen pane mode
-  { key = "Z", mods = "Command|Shift", chars =  "\u0002z" },
-  
-  # Ctrl+B + Ctrl+Z suspend sections
-  # { key = "A", mods = "Option|Shift", chars =  "\u0002\u001a" },
-  
-  # disacher sections
+   # disacher sections
   { key = "D", mods = "Command|Shift", chars =  "\u0002d" },
-
-  # list sections
-  { key = "S", mods = "Command|Shift", chars =  "\u0002s" },
-
-  # switch to the last tmux session
-  { key = "L", mods = "Command|Option|Control", chars = "\u0002L" },
 
   # Move window prev and next
   { key = "{", mods = "Command|Shift", chars = "\u0002p" },
   { key = "}", mods = "Command|Shift", chars = "\u0002n" },
   # { key = "Tab", mods =  "Control", chars = "\u0002n" },
   # { key = "Tab", mods =  "Control|Shift", chars = "\u0002p" },
-
-  #full search panel
-  # { key = "F", mods = "Command", chars = "\u0002\u005b\u002f" }, 
-  # Copy mode
-  # { key = "[", mods = "Command|Option", chars = "\u0002[" }, 
-  # { key = "u", mods = "Command|Option", chars = "\u0002x" } # open URLs 'joshmedeski/tmux-fzf-url'
-
-  # { key = "{", mods = "Command", chars = "\u000f" }, # navigate back in vim (ctrl+o)
-  # { key = "}", mods = "Command", chars = "\u0009" } # navigate forward in vim (ctrl+i)
-  # { key =  "Q", mods =  "Command", chars = ":q\n" } 
-  # { key: RBracket, mods: Command, chars: "\x09" } # navigate forward in vim (ctrl+i)
 ]

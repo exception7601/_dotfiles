@@ -1,16 +1,11 @@
-
-filetype plugin on
 setlocal tabstop=2 shiftwidth=2 expandtab
 set ts=2 sw=2 sts=2 et
-
-let mapleader=","
 
 " Define os caracteres especiais e suas representações
 set list
 
 " Space Char
 set listchars=tab:»\ ,eol:¬,extends:>,precedes:<,nbsp:_,space:∙,multispace:∙
-syntax on
 
 "" Disable vi compatible
 set nocompatible
@@ -27,6 +22,18 @@ set incsearch
 set hlsearch
 set showcmd
 set showmode
+
+" May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
+" utf-8 byte sequence
+set encoding=utf-8
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
+" delays and poor user experience
+set updatetime=300
 
 " Consulte http://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-after-curly-braces-in-vim
 " Não tenho certeza sobre esse combo pelo que li com a ajuda das configurações individuais, mas ei, 
@@ -51,6 +58,9 @@ set relativenumber
 " Remova isto para mostrar 0 em vez de line_number na linha atual
 set number
 
+filetype plugin on
+syntax on
+
 " This will make relative line numbers work on Netrw too
 " let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
@@ -74,13 +84,14 @@ highlight ColorColumn ctermbg=darkgray
 " MAPEAMENTO
 "
 " Mode lines using Option + Cmd + []
+let mapleader=" "
 
-vnoremap <Leader>[ :m '<-2<CR>gv=gv
-nnoremap <Leader>[ :m .-2<CR>==
-nnoremap <Leader>] :m .+1<CR>==
-vnoremap <Leader>] :m '>+1<CR>gv=gv
-inoremap <Leader>] <Esc>:m .+1<CR>==gi
-inoremap <Leader>[ <Esc>:m .-2<CR>==gi
+vnoremap g[ :m '<-2<CR>gv=gv
+nnoremap g[ :m .-2<CR>==
+nnoremap g] :m .+1<CR>==
+vnoremap g] :m '>+1<CR>gv=gv
+inoremap g] <Esc>:m .+1<CR>==gi
+inoremap g[ <Esc>:m .-2<CR>==gi
 
 " nnoremap <Leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
@@ -94,28 +105,50 @@ vnoremap > >gv
 " Map <Leader>, to save
 nnoremap <C-s> :w<CR>
 
+" -- Move remaps
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
-call plug#begin()
-" NERD tree will be loaded on the first invocation of NERDTreeToggle command
-" Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+" Exit insert mode with Ctrl+C
+ inoremap <C-c> <Esc>
 
-Plug 'junegunn/vim-plug'
-Plug 'rose-pine/vim'
-Plug 'mbbill/undotree'
-Plug 'tpope/vim-commentary'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-call plug#end()
+" Replace text
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
-" PLUGIN: FZF
-nnoremap <C-p> :FzfGFiles<CR>
-nnoremap <Leader>pf :FzfFiles<CR>
-nnoremap \ :FzfRg<CR>
+" Source current file
+nnoremap <Leader><Leader> :so<CR>
 
+ "Black hole" register delete
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+
+" Greatest remap ever - visual replace without overwriting the clipboard
+xnoremap <leader>p "_dP
+
+" Copy visual mode to system clipboard with Ctrl+C
+vnoremap <C-c> "+y
+
+" Undotree toggle
+nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
 
-"if filereadable(expand("~/.vimrc.plugs"))
-" endif
+ " Comment function to reselect last visual selection and comment
+function! ReselectAndComment()
+  :Commentary
+endfunction
+
+nnoremap g/ :call ReselectAndComment()<CR>
+inoremap g/ <Esc>:call ReselectAndComment()<CR>i
+vnoremap g/ :Commentary<Bar>normal! gv<CR>
+
+call plug#begin()
+Plug 'junegunn/vim-plug'
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-commentary'
+Plug 'arzg/vim-colors-xcode'
+call plug#end()
 
 "
 " Spell checking settings
@@ -134,7 +167,6 @@ au BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 " Complete for insertion mode CTRL-Nou CTRL-P
 set complete+=kspell
 
-
 "
 " Files Type
 "
@@ -145,11 +177,6 @@ au BufRead,BufNewFile Pods.WORKSPACE set filetype=starlark
 
 " Prettier formatter configuration
 "autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-
-"
-" Config Plugins
-"
-
 
 " Netrw settings
 "
@@ -163,69 +190,12 @@ let g:netrw_liststyle=3
 "
 com! FormatJSON %!python -m json.tool
 
-" Notice you'll have to delete the :'<,'> prompt in visual mode before typing
-" this command's name.
-
-command! CapitalizeSelection :'<,'>s/\(\w\)\(\w*\)/\u\1\L\2/g
-
-let g:fzf_vim = {}
-let g:fzf_vim.command_prefix = 'Fzf'
-
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Search'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Visual'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'StatusLineNC'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Overwrite :Rg from fzf.vim
-" Hit '?' to toggle the preview
-command! -bang -nargs=* Rg call fzf#vim#grep(
-  \   'rg
-  \ --column
-  \ --line-number
-  \ --no-heading
-  \ --fixed-strings
-  \ --ignore-case
-  \ --hidden
-  \ --follow
-  \ --glob "!.git/*"
-  \ --color "always" '.shellescape(<q-args>),
-  \   fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
-set background=dark
-colorscheme rosepine_moon 
-hi Normal guibg=NONE ctermbg=NONE
-" hi NormalFloat guibg=NONE ctermbg=NONE
-
 " configure comments in vimcript
 autocmd FileType vimscript setlocal commentstring="\ %s
 
-" Source Vim configuration file and install plugins
-" via https://pragmaticpineapple.com/ultimate-vim-typescript-setup/
-nnoremap <silent><leader>r :source ~/.vimrc \| :PlugInstall<CR> \| :PlugUpdate<CR>
-
-" May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
-" utf-8 byte sequence
-set encoding=utf-8
-" Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
-
-" Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
-" delays and poor user experience
-set updatetime=300
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"
+" Theme
+"
+" set∙background=dark
+hi Normal guibg=NONE ctermbg=NONE
+colorscheme xcodedarkhc
