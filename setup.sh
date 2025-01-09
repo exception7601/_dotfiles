@@ -59,14 +59,6 @@ else
   curl -fLo "$vim_plug_path" --create-dirs "$plug_git_url" 
 fi
 
-#nvim plugins
-nvim_plug_path="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim
-if [[ -f "$nvim_plug_path" ]]; then
-  echo "Looks like you already have nvim-Plug installed, skipping"
-else
-  curl -fLo "$nvim_plug_path" --create-dirs "$plug_git_url"
-fi
-
 # Hammerspoon window manager
 # http://www.hammerspoon.org/
 mkdir -p $HOME/.hammerspoon

@@ -14,7 +14,7 @@ compinit
 
 zstyle ':completion:*' menu select
 #zstyle ':completion:*:*:*:*:descriptions' format '%F{green}-- %d --%f'
-zstyle ':completion:*' file-list all
+# zstyle ':completion:*' file-list all
 
 source $HOME/.alias
 
@@ -51,3 +51,4 @@ export PATH="$PATH:/Users/anderson/.local/bin"
 
 export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 
+export PATH="/usr/local/opt/openjdk/bin:$PATH"

@@ -1,6 +1,8 @@
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<Leader>ex", vim.cmd.Ex)
+vim.keymap.set("n", "<D-x>", vim.cmd.Ex)
+
 --  move lines using  option+command  { }
 vim.keymap.set("v", "g[", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "g]", ":m '>+1<CR>gv=gv")
@@ -10,16 +12,15 @@ vim.keymap.set("n", "g]", ":m .+1<CR>==")
 -- vim.keymap.set("i", "<Leader>[", "<Esc>:m -2<CR>==gi")
 -- vim.keymap.set("i", "<Leader>]", "<Esc>:m .+1<CR>==gi")
 
--- nnoremap <Leader>n :NERDTreeFocus<CR>
--- select after indentation.
+-- Select after indentation.
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 -- vim.keymap.set("n","<silent><Leader>r",  ":PlugInstall<CR> | :PlugUpdate<CR>")
-
 -- vim.keymap.set("n", "J", "mzJ`z")
+
 -- Move remaps
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -55,26 +56,13 @@ function ReselectAndComment()
   vim.api.nvim_command('Commentary')
 end
 
-vim.keymap.set('n', '<D-/>', ReselectAndComment)
-vim.keymap.set('i', '<D-/>', ReselectAndComment)
-vim.keymap.set('v', '<D-/>', ":Commentary| normal gv_<CR>", { silent = true })
-
-for number = 1, 9 do
-  vim.keymap.set('n', '<leader>' .. number , number .. 'gt')
-end
+vim.keymap.set('n', 'g/', ReselectAndComment)
+vim.keymap.set('i', 'g/', ReselectAndComment)
+vim.keymap.set('v', 'g/', ":Commentary| normal gv_<CR>", { silent = true })
 
 -- Disable move keys
 vim.keymap.set('n', '<Left>', ':echoe "Use h"<CR>')
 vim.keymap.set('n', '<Right>', ':echoe "Use l"<CR>')
 vim.keymap.set('n', '<Up>', ':echoe "Use k"<CR>')
 vim.keymap.set('n', '<Down>', ':echoe "Use j"<CR>')
-
--- only windows 
-vim.api.nvim_set_keymap('n', '<leader>o', ':only<CR>', { noremap = true, silent = true })
-
-
-
-
-
-
 
