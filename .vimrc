@@ -1,5 +1,10 @@
+set noswapfile
+
 setlocal tabstop=2 shiftwidth=2 expandtab
 set ts=2 sw=2 sts=2 et
+
+set keyprotocol=alacritty:kitty
+set keyprotocol+=xterm:mok2
 
 " Define os caracteres especiais e suas representações
 set list
@@ -26,7 +31,7 @@ set showmode
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
 set encoding=utf-8
-
+let mapleader = "\<Space>"
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
@@ -87,11 +92,11 @@ highlight ColorColumn ctermbg=darkgray
 let mapleader=" "
 
 vnoremap g[ :m '<-2<CR>gv=gv
+vnoremap g] :m '>+1<CR>gv=gv
 nnoremap g[ :m .-2<CR>==
 nnoremap g] :m .+1<CR>==
-vnoremap g] :m '>+1<CR>gv=gv
-inoremap g] <Esc>:m .+1<CR>==gi
-inoremap g[ <Esc>:m .-2<CR>==gi
+" inoremap g] <Esc>:m .+1<CR>==gi
+" inoremap g[ <Esc>:m .-2<CR>==gi
 
 " nnoremap <Leader>n :NERDTreeFocus<CR>
 " nnoremap <C-n> :NERDTree<CR>
@@ -101,7 +106,6 @@ vnoremap > >gv
 
 " Remap ESC and save on pinky travel time :)
 " inoremap kk <esc>
-
 " Map <Leader>, to save
 nnoremap <C-s> :w<CR>
 
@@ -118,7 +122,7 @@ nnoremap N Nzzzv
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 
 " Source current file
-nnoremap <Leader><Leader> :so<CR>
+nnoremap <Leader>r :so<CR>
 
  "Black hole" register delete
 nnoremap <leader>d "_d
@@ -134,13 +138,19 @@ vnoremap <C-c> "+y
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <Leader>gs :Git<CR>
 
+" FZF Maps
+nnoremap <silent><leader>l :Buffers<CR>
+nnoremap <silent><leader>p :GFiles<CR>
+nnoremap <silent><leader>e :Files<CR>
+nnoremap <leader>f :Rg<Cr>
+
  " Comment function to reselect last visual selection and comment
 function! ReselectAndComment()
   :Commentary
 endfunction
 
 nnoremap g/ :call ReselectAndComment()<CR>
-inoremap g/ <Esc>:call ReselectAndComment()<CR>i
+" inoremap g/ <Esc>:call ReselectAndComment()<CR>i
 vnoremap g/ :Commentary<Bar>normal! gv<CR>
 
 call plug#begin()
@@ -148,6 +158,16 @@ Plug 'junegunn/vim-plug'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-commentary'
 Plug 'arzg/vim-colors-xcode'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'tpope/vim-fugitive'
+" Install latest fzf as part of installing/updating the plugin
+" See https://github.com/junegunn/fzf.vim/issues/1134#issuecomment-2186171167
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Languages
+" Plug 'vim-ruby/vim-ruby'
+
 call plug#end()
 
 "
@@ -191,7 +211,7 @@ let g:netrw_liststyle=3
 com! FormatJSON %!python -m json.tool
 
 " configure comments in vimcript
-autocmd FileType vimscript setlocal commentstring="\ %s
+" autocmd FileType vimscript setlocal commentstring="\ %s
 
 "
 " Theme

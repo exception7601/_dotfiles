@@ -1,97 +1,76 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
-    "stevearc/conform.nvim",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    -- "williamboman/mason.nvim",
+    -- "williamboman/mason-lspconfig.nvim",
+
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
+
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
+    "rafamadriz/friendly-snippets",
+
     "j-hui/fidget.nvim",
   },
 
   config = function()
-    require("conform").setup({
-      formatters_by_ft = {
-      }
-    })
+
     local cmp = require('cmp')
+
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = vim.tbl_deep_extend(
-    "force",
-    {},
-    vim.lsp.protocol.make_client_capabilities(),
-    cmp_lsp.default_capabilities()
+      "force",
+      {},
+      vim.lsp.protocol.make_client_capabilities(),
+      cmp_lsp.default_capabilities()
     )
 
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = true
 
-    require("fidget").setup({})
-    require("mason").setup()
-    require("mason-lspconfig").setup({
-      -- A list of servers to automatically install if they're not already installed.
-      -- Example: { "rust_analyzer@nightly", "lua_ls" }
-      -- This setting has no relation with the `automatic_installation` setting.
-      ensure_installed = {
-        -- "tsserver",
-        -- "html",
-        -- "cssls",
-        -- "ruff",
-        -- "pylsp",
-        -- "rubocop",
-        -- "ruby_lsp",
-        -- "solargraph",
-        "pyright",
-        "lua_ls",
-        -- "hydra_lsp",
-      },
+    local util = require 'lspconfig.util'
 
-      handlers = {
-        function(server_name)
-          -- default handler (optional)
-          require("lspconfig")[server_name].setup {
-            capabilities = capabilities
-          }
-        end,
-
-        ["lua_ls"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.lua_ls.setup {
-            capabilities = capabilities,
-            settings = {
-              Lua = {
-                -- runtime = { version = "Lua 5.1" },
-                completion = {
-                  callSnippet = "Both"  -- Mostra nome e snippet de chamada
-                },
-                diagnostics = {
-                  globals = { "vim", "it", "hs", "describe", "before_each", "after_each" },
-                }
-              }
+    require'lspconfig'.lua_ls.setup{
+      cmd = { 'lua-language-server' },
+      filetypes = { 'lua' },
+      -- root_markers = {
+        --   '.luarc.json',
+        --   '.luarc.jsonc',
+        --   '.luacheckrc',
+        --   '.stylua.toml',
+        --   'stylua.toml',
+        --   'selene.toml',
+        --   'selene.yml',
+        --   '.git',
+        -- },
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            -- runtime = { version = "Lua 5.1" },
+            completion = {
+              callSnippet = "Both"  -- Mostra nome e snippet de chamada
+            },
+            diagnostics = {
+              globals = { "vim", "it", "hs", "describe", "before_each", "after_each" },
             }
           }
-        end,
-      }
-    })
-
-    local default_config = {
-      cmd = { "sourcekit-lsp" },
-      filetypes = { "swift", "c", "cpp", "objective-c", "objective-cpp" },
-      -- root_dir = util.root_pattern("buildServer.json", "Package.swift", ".git"),
-      capabilities = capabilities
+        }
     }
 
     require'lspconfig'.sourcekit.setup{
-      default_config
+      cmd = { "sourcekit-lsp" },
+      filetypes = { "swift", "c", "cpp", "objective-c", "objective-cpp" },
+      root_dir = util.root_pattern("buildServer.json", "Package.swift", ".git"),
+      capabilities = capabilities
     }
 
+    vim.opt.completeopt = {'menu', 'menuone', 'noinsert', 'noselect'}
+
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
-    vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 
     cmp.setup({
       snippet = {
@@ -115,16 +94,20 @@ return {
       sources = cmp.config.sources({
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
-        { name = 'luasnip', option = { use_show_condition = false } },
+        -- { name = 'luasnip', option = { use_show_condition = false } },
         { name = 'path'},
       }, {
-
         { name = 'buffer' },
       })
     })
 
+    -- Show diagnostics in a floating window
+    vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+
     vim.diagnostic.config({
-      -- update_in_insert = true,
+      signs = true,
+      virtual_text = true,
+      update_in_insert = false,
       float = {
         focusable = false,
         style = "minimal",

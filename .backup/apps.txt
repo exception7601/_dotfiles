@@ -1,4 +1,5 @@
 Alacritty.app
+Amphetamine.app
 AppCleaner.app
 Aware.app
 Coffee Buzz.app

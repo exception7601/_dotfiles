@@ -26,7 +26,7 @@ return {
     vim.keymap.set('n', '<leader>P', builtin.git_files, {})
     vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Telescope buffers' })
 
-    vim.keymap.set('n', '<leader>p', function()
+     vim.keymap.set('n', '<leader>p', function()
       builtin.grep_string({ search = vim.fn.input("Grep > ") })
     end)
 

@@ -9,8 +9,8 @@ vim.keymap.set("v", "g]", ":m '>+1<CR>gv=gv")
 vim.keymap.set("n", "g[", ":m .-2<CR>==")
 vim.keymap.set("n", "g]", ":m .+1<CR>==")
 
--- vim.keymap.set("i", "<Leader>[", "<Esc>:m -2<CR>==gi")
--- vim.keymap.set("i", "<Leader>]", "<Esc>:m .+1<CR>==gi")
+-- vim.keymap.set("i", "<D-[>", "<Esc>:m -2<CR>==gi")
+-- vim.keymap.set("i", "<D-]>", "<Esc>:m .+1<CR>==gi")
 
 -- Select after indentation.
 vim.keymap.set("v", "<", "<gv")
