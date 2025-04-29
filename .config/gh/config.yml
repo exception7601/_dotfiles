@@ -6,5 +6,6 @@ aliases:
     co: pr checkout
     repo-delete: api -X DELETE "repos/$1"
     merge: pr merge
+    dl: download
 http_unix_socket:
 version: "1"

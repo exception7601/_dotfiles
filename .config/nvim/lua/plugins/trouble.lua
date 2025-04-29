@@ -21,22 +21,8 @@ return {
         require("trouble").previous({skip_groups = true, jump = true});
       end)
 
-      -- -- Config ui Diagnostic
-      -- vim.diagnostic.config({
-      --   virtual_text = false,
-      --   -- update_in_insert = true,
-      --   float = {
-      --     focusable = true,
-      --     style = "minimal",
-      --     border = "rounded",
-      --     source = "always",
-      --     header = "",
-      --     prefix = ""
-      --   },
-      -- })
-
       -- Show diagnostics in a floating window
-      vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+      -- vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
       -- Move to the previous diagnostic
       -- vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
       -- Move to the next diagnostic
