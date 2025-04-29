@@ -52,3 +52,6 @@ export PATH="$PATH:/Users/anderson/.local/bin"
 export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
 
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH="/usr/local/opt/openjdk@21/bin:$PATH"

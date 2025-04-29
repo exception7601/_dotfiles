@@ -141,4 +141,3 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 -- Ativar divisões verticais por padrão
 vim.opt.splitright = true
 
-

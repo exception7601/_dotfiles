@@ -5,6 +5,9 @@ general.live_config_reload = true
 program = "/bin/zsh"
 args = ["--login", "-c", "tmux new -A -s 0"]
 
+[env]
+KITTY_ENABLE_KEYBOARD = "yes"
+
 [window]
 opacity = 1
 decorations = "full"
