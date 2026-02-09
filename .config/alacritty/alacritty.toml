@@ -1,16 +1,24 @@
+# uncomment the flavour you want below:
+# general.import = [
+#   # "~/.config/alacritty/catppuccin-latte.toml"
+#   # "~/.config/alacritty/catppuccin-frappe.toml"
+#   # "~/.config/alacritty/catppuccin-macchiato.toml"
+#  "~/.config/alacritty/catppuccin-mocha.toml"
+# ]
+
 general.import = ["/Users/anderson/.config/alacritty/dracula.toml"]
 general.live_config_reload = true
 
-[terminal.shell]
-program = "/bin/zsh"
-args = ["--login", "-c", "tmux new -A -s 0"]
+# [terminal.shell]
+# program = "/bin/zsh"
+# args = ["--login", "-c", "tmux new -A -s 0"]
+
+# [window]
+# opacity = 0.8
+# decorations = "full"
 
 [env]
-KITTY_ENABLE_KEYBOARD = "yes"
-
-[window]
-opacity = 1
-decorations = "full"
+LC_ALL = "en_US.UTF-8"
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -32,14 +40,19 @@ bindings = [
   # { key = "Right", mods = "Option", chars = "ƒ" },  
   { key = "Return", mods = "Shift|Command", action = "CreateNewWindow" },
 
-  # vim bindings move lines
-  { key = "]", mods = "Option|Command", chars = "g]" },
-  { key = "[", mods = "Option|Command", chars = "g[" },
+  # Vim Command
+  { key = "O", mods = "Shift|Command", chars = " o" },
+  # Vim Command
+  { key = "F", mods = "Shift|Command", chars = " F" },
+
+# vim bindings move lines
+  # { key = "]", mods = "Option|Command", chars = "g]" },
+  # { key = "[", mods = "Option|Command", chars = "g[" },
   
   #save vim buffer
-  { key = "S", mods =  "Command", chars = "\u001b\u003a\u0077\u000a" },
+  # { key = "S", mods =  "Command", chars = "\u001b\u003a\u0077\u000a" },
 
-  { key = "/", mods =  "Command", chars = "g/" }, 
+  { key = "/", mods =  "Command", chars = "g/"}, 
   # tmux bindings usar 4-digit hex code
 
   # tmux create window: Ctrl-b c
@@ -63,6 +76,8 @@ bindings = [
   { key = "Key5", mods = "Command", chars = "\u00025" },
   { key = "Key6", mods = "Command", chars = "\u00026" },
 
+  # { key = "F", mods = "Command|Shift", command = { program = "fzf", args = [""] } },
+
    # disacher sections
   { key = "D", mods = "Command|Shift", chars =  "\u0002d" },
 
@@ -72,3 +87,4 @@ bindings = [
   # { key = "Tab", mods =  "Control", chars = "\u0002n" },
   # { key = "Tab", mods =  "Control|Shift", chars = "\u0002p" },
 ]
+

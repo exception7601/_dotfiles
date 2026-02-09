@@ -44,3 +44,22 @@ export SAVEHIST=1000
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 # export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# Use your LiteLLM API 
+export ANTHROPIC_BASE_URL="http://10.10.10.10:8317/"
+# export ANTHROPIC_API_KEY="your-api-key"
+# export ANTHROPIC_AUTH_TOKEN="your-api-key"
+# export OPENAI_API_KEY="your-api-key"
+
+# version 2.x.x
+export ANTHROPIC_DEFAULT_OPUS_MODEL=gemini-2.5-pro
+export ANTHROPIC_DEFAULT_SONNET_MODEL=gemini-2.5-flash
+export ANTHROPIC_DEFAULT_HAIKU_MODEL=gemini-2.5-flash-lite
+# version 1.x.x
+export ANTHROPIC_MODEL=gemini-2.5-pro
+export ANTHROPIC_SMALL_FAST_MODEL=gemini-2.5-flash
+
+# export OPENAI_BASE_URL="http://10.10.10.10:4000"
+# export GOOGLE_GEMINI_BASE_URL="http://10.10.10.10:4000"
+# export GEMINI_API_KEY="your-api-key"
+export HOMEBREW_NO_AUTO_UPDATE=1

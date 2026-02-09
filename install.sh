@@ -21,7 +21,7 @@ pushd ~
 # Get the dotfiles repo
 yes | git clone git@github.com:exception7601/_dotfiles.git  ~/.dotfiles
 
-cd ~/.dotfiles
+# cd ~/.dotfiles
 
 # Run the setup script
 ./setup.sh

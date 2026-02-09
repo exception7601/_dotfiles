@@ -1,0 +1,49 @@
+[tools]
+java = "oracle-graalvm-21"
+lua = "5.1"
+bun = "latest"
+node = "22"
+python = "3.12"
+ruby = "3.2"
+# go = "1.21"
+rust = { version = "1.83.0", profile = "minimal" }
+
+# "npm:@zed-industries/vscode-langservers-extracted" = "latest"
+"aqua:LuaLS/lua-language-server" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
+"npm:bash-language-server" = "latest"
+"npm:@vtsls/language-server" = "latest"
+"npm:yaml-language-server" = "latest"
+# "go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
+"aqua:koalaman/shellcheck" = "latest"
+# "gem:ruby-lsp" = "latest"
+"aqua:tamasfe/taplo" = "latest"
+
+"aqua:JohnnyMorganz/StyLua" = "latest"
+"aqua:mvdan/sh" = "latest"
+"npm:prettier" = "latest"
+"gem:rufo" = "latest"
+
+"npm:openskills" = "latest"
+"npm:@github/copilot" = "latest"
+"npm:opencode-ai" = "latest"
+"npm:@charmland/crush" = "latest"
+"npm:@google/gemini-cli" = "latest"
+"npm:@openai/codex" = "latest"
+
+"pipx:uv" = "latest"
+
+"npm:go-ios" = "latest"
+# "pipx:pymobiledevice3" = "latest"
+# "pipx:frida-tools" = "latest"
+# "pipx:yt-dlp" = "latest"
+
+# "gem:rubocop" = "latest"
+# "gem:fastlane" = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = []
+experimental = true
+
+# [settings.npm]
+# package_manager = "bun"

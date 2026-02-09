@@ -1,5 +1,10 @@
 .DS_Store
+node_modules/
 Applications
 Games
 Library
 .local/share/
+
+.config/opencode/package.json
+.config/opencode/bun.lock
+

@@ -26,14 +26,21 @@ zmodload zsh/complist
 
 #autoload -U compinit; compinit
 
+function fzf-widget {
+  fzf --print0 --height=100% --layout=default <"$TTY" | xargs -0 -o nvim
+}
+
+zle -N fzf-widget
 # cofig keybindings emg
 bindkey -e
 
+bindkey "∂" fzf-widget
 bindkey "\e[3~" delete-char
 bindkey "∫" backward-word
 bindkey "ƒ" forward-word
+
 eval "$(fzf --zsh)"
-eval "$(rbenv init - zsh)"
+# eval "$(rbenv init - zsh)"
 export GPG_TTY=$(tty)
 
 # end key;
@@ -44,14 +51,35 @@ export GPG_TTY=$(tty)
 
 # Created by `pipx` on 2024-05-27 19:35:13
 export PATH="$PATH:/Users/anderson/.local/bin"
+export PATH="$PATH:/Users/anderson/.bin"
 
-# export PYENV_ROOT="$HOME/.pyenv"
-# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+eval "$(mise activate zsh)" 
 
-export PATH="/usr/local/opt/openjdk@17/bin:$PATH"
+#compdef opencode
+###-begin-opencode-completions-###
+#
+# yargs command completion script
+#
+# Installation: opencode completion >> ~/.zshrc
+#    or opencode completion >> ~/.zprofile on OSX.
+#
+_opencode_yargs_completions()
+{
+  local reply
+  local si=$IFS
+  IFS=$'
+' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" opencode --get-yargs-completions "${words[@]}"))
+  IFS=$si
+  if [[ ${#reply} -gt 0 ]]; then
+    _describe 'values' reply
+  else
+    _default
+  fi
+}
+if [[ "'${zsh_eval_context[-1]}" == "loadautofunc" ]]; then
+  _opencode_yargs_completions "$@"
+else
+  compdef _opencode_yargs_completions opencode
+fi
+###-end-opencode-completions-###
 
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export JAVA_HOME=$(/usr/libexec/java_home)
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH="/usr/local/opt/openjdk@21/bin:$PATH"

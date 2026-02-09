@@ -1,11 +1,17 @@
 #!/bin/bash
 
+# Cheack name extensions
+# mdls -name kMDItemContentType -name kMDItemContentTypeTree <file-type>
+
 declare -a extensions=(
     public.plain-text
     public.source-code
     public.unix-executable
     public.data
     public.html
+    com.apple.property-list
+    
+    .conf
 
     .adl
     .aspx
@@ -86,7 +92,7 @@ declare -a extensions=(
     .spec
     .sql
     .svg
-    .swift
+    # .swift
     .tcl
     .text
     .textile
@@ -118,3 +124,5 @@ done
 # Sublime 4 Config
 ln -sf "$pwd/.sublime/Preferences.sublime-settings" "$HOME/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings"
 # ln -sf "/usr/local/Cellar/openssl@1.1/1.1.1o/lib/libcrypto.dylib" "/usr/local/lib/"
+# duti -s com.apple.dt.Xcode public.swift-source all
+

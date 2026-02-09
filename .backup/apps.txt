@@ -1,29 +1,31 @@
 Alacritty.app
-Amphetamine.app
 AppCleaner.app
 Aware.app
+AYA.app
+Clean Me.app
 Coffee Buzz.app
 Color Picker.app
-Discovery.app
-Display Menu.app
-Hammerspoon.app
+Firefox.app
 Hand Mirror.app
 HandBrake.app
-Hot.app
+idevice_pair.app
+iloader.app
 ImageOptim.app
-KeyCastr.app
+InjectionIII.app
+InjectionNext.app
+iOS App Signer.app
+KnockKnock.app
 Macs Fan Control.app
+MacSymbolicator.app
+Modrinth App.app
 NetNewsWire.app
-OBS.app
-PiP.app
-Plash.app
-SF Symbols.app
-Safari Technology Preview.app
-Shortcat.app
-Speedtest.app
+RetroArch.app
 Sublime Text.app
 Tailscale.app
-UTM.app
+Telegram Lite.app
+Transporter.app
+uBlock Origin Lite.app
 Userscripts.app
-_Xcodes.app
-iOS App Signer.app
+Windows App.app
+WireGuard.app
+Xcodes.app
