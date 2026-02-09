@@ -10,10 +10,6 @@ dotfiles=(
   'vimrc'
   'zshrc'
   'zshenv'
-
-  'bin'
-  'config'
-  'aria2'
 )
 
 pwd=`pwd`
@@ -38,12 +34,6 @@ done
 # # https://unix.stackexchange.com/questions/85538/how-can-i-create-my-own-spelling-file-for-vim
 # ln -s $pwd/vim/spell/custom-spell.utf-8.add ~/.vim/spell/custom-spell.utf-8.add
 
-# # link folders
-# ln -s $pwd/.bin/ $HOME/.bin
-
-# # mkdir -p $HOME/.config
-# ln -s $pwd/.config/ $HOME/.config
-
 brew bundle install --file .backup/Brewfile
 # Some of the tools install via Homebrew might need additional manual steps.
 # It would be cool if this could be done as part of the Brefile run
@@ -63,6 +53,11 @@ fi
 # http://www.hammerspoon.org/
 mkdir -p $HOME/.hammerspoon
 ln -s $pwd/.hammerspoon/init.lua $HOME/.hammerspoon/init.lua
+
+# # link folders
+ln -s $pwd/.config $HOME/.config
+ln -s $pwd/.aria2 $HOME/.aria2
+ln -s $pwd/.bin $HOME/.bin
 
 # .ssh
 # cp -r $pwd/.ssh/ $HOME/.ssh

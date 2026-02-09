@@ -1,0 +1,16 @@
+# See http://editorconfig.org/
+
+[*]
+trim_trailing_whitespace = true
+[*.diff]
+trim_trailing_whitespace = false
+
+# Objective-C
+[*{.h,.m,.mm}]
+indent_style = space
+indent_size = 2
+
+# Swift
+[*{.swift}]
+indent_style = space
+indent_size = 2

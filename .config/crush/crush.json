@@ -1,0 +1,529 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "options": {
+    "attribution": {
+      "trailer_style": "none",
+      "generated_with": false
+    },
+    "skills_paths": [
+      "~/.claude/skills/"
+    ]
+  },
+  "mcp": {
+    "gh_grep": {
+      "type": "http",
+      "url": "https://mcp.grep.app"
+    },
+    "sentry": {
+      "type": "http",
+      "url": "https://mcp.sentry.dev/mcp",
+      "disabled": true
+    },
+    "chrome-devtools": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ],
+      "disabled": true
+    },
+    "xcode": {
+      "type": "stdio",
+      "command": "xcrun",
+      "args": [
+        "mcpbridge"
+      ],
+      "disabled": true
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ],
+      "disabled": true
+    }
+  },
+  "lsp": {
+    "typeprof": {
+      "disabled": true
+    },
+    "solargraph": {
+      "disabled": true
+    },
+    "rubocop": {
+      "disabled": true
+    },
+    "sourcekit": {
+      "command": "sourcekit-lsp",
+      "root_markers": [
+        "Package.swift",
+        "."
+      ],
+      "filetypes": [
+        "swift",
+        "objective-c",
+        "cpp"
+      ],
+      "disabled": true
+    }
+  },
+  "providers": {
+    "cli-proxy-api-plus": {
+      "type": "openai",
+      "base_url": "https://openrouter.4nd.xyz/v1",
+      "api_key": "your-api-key-1",
+      "models": [
+        {
+          "id": "grok-code-fast-1",
+          "name": "Grok Code Fast 1",
+          "context_window": 256000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": false,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "gpt-4.1",
+          "name": "GPT-4.1",
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "gpt-4o",
+          "name": "GPT-4o",
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "gpt-5.2",
+          "name": "GPT-5.2",
+          "context_window": 200000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "gpt-5.2-codex",
+          "name": "GPT-5.2 Codex",
+          "context_window": 200000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "claude-haiku-4.5",
+          "name": "Claude Haiku 4.5",
+          "context_window": 200000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "claude-opus-4.5",
+          "name": "Claude Opus 4.5",
+          "context_window": 200000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "claude-sonnet-4.5",
+          "name": "Claude Sonnet 4.5",
+          "context_window": 200000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "gemini-2.5-pro",
+          "name": "Gemini 2.5 Pro",
+          "context_window": 1000000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "gemini-3-flash",
+          "name": "Gemini 3 Flash",
+          "context_window": 1000000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "gemini-3-pro",
+          "name": "Gemini 3 Pro",
+          "context_window": 1000000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {}
+        },
+        {
+          "id": "glm4.7",
+          "name": "GLM 4.7",
+          "context_window": 128000,
+          "default_max_tokens": 16384,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": false,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {
+            "temperature": 1.0,
+            "top_p": 1.0
+          }
+        },
+        {
+          "id": "kimi-k2",
+          "name": "Kimi K2.5",
+          "context_window": 128000,
+          "default_max_tokens": 16384,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": false,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {
+            "temperature": 1.0,
+            "top_p": 1.0
+          }
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "claude-opus-4.1",
+          "name": "Claude Opus 4.1"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gemini-3-flash-preview",
+          "name": "Gemini 3 Flash Preview"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gpt-5-mini",
+          "name": "Gpt 5 Mini"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gpt-5.1-codex",
+          "name": "Gpt 5.1 Codex"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gemini-2.5-flash-lite",
+          "name": "Gemini 2.5 Flash Lite"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gpt-oss-120b-medium",
+          "name": "Gpt Oss 120B Medium"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "tab_flash_lite_preview",
+          "name": "Tab_Flash_Lite_Preview"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "copilot-gpt5",
+          "name": "Copilot Gpt5"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gpt-5.1-codex-max",
+          "name": "Gpt 5.1 Codex Max"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gemini-3-pro-image",
+          "name": "Gemini 3 Pro Image"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gpt-5.1-codex-mini",
+          "name": "Gpt 5.1 Codex Mini"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "claude-sonnet-4",
+          "name": "Claude Sonnet 4"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "claude-opus-4-5-thinking",
+          "name": "Claude Opus 4_5 Thinking"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "claude-sonnet-4-5",
+          "name": "Claude Sonnet 4_5"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gpt-5-codex",
+          "name": "Gpt 5 Codex"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gpt-5.1",
+          "name": "Gpt 5.1"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gemini-3-pro-high",
+          "name": "Gemini 3 Pro High"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "gemini-3-pro-preview",
+          "name": "Gemini 3 Pro Preview"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "claude-sonnet-4-5-thinking",
+          "name": "Claude Sonnet 4_5 Thinking"
+        },
+        {
+          "context_window": 128000,
+          "default_max_tokens": 4096,
+          "cost_per_1m_in": 0,
+          "can_reason": true,
+          "supports_attachments": true,
+          "cost_per_1m_out_cached": 0,
+          "cost_per_1m_out": 0,
+          "cost_per_1m_in_cached": 0,
+          "options": {},
+          "id": "oswe-vscode-prime",
+          "name": "Oswe Vscode Prime"
+        }
+      ]
+    }
+  }
+}
