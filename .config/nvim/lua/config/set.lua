@@ -1,5 +1,5 @@
--- vim.o.splitbelow = true
--- vim.opt.guicursor = ""
+
+vim.opt.guicursor = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -18,7 +18,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = true
+vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -127,17 +127,26 @@ vim.api.nvim_create_autocmd("BufRead", {
   end,
 })
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
-  pattern = "*.swift",
-  callback = function ()
+-- vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+--   pattern = "*.swift",
+--   callback = function ()
+--   end
+-- })
+
+-- Ativar divisões verticais por padrão
+-- vim.opt.splitright = true
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "swift",
+  callback = function()
     vim.opt_local.commentstring = '// %s'
     vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
     vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
     vim.opt_local.expandtab = true
   end
 })
-
--- Ativar divisões verticais por padrão
-vim.opt.splitright = true
-

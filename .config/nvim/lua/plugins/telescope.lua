@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.5",
+  enabled = false,
+  tag = "0.1.8",
   dependencies = {
     "nvim-lua/plenary.nvim"
   },
@@ -8,36 +9,43 @@ return {
     require('telescope').setup{
       defaults = {
         file_ignore_patterns = {
-          "Applications",
-          "Games",
-          "Library",
-          "Music",
-          "Pictures"
+          "Applications/",
+          "games/",
+          "Library/",
+          "Movies/",
+          "Music/",
+          "Pictures/",
+          "Downloads/",
+          ".Trash/",
+          ".cache/",
+          ".git/"
         }
       }
     }
 
     local builtin = require('telescope.builtin')
 
-    vim.keymap.set('n', '<leader>f', function()
-      builtin.find_files({ hidden = false, no_ignore = false })
+    vim.keymap.set('n', '<leader>o', function()
+      builtin.find_files({ hidden = true, no_ignore = false })
     end, { noremap = true, silent = true })
 
-    vim.keymap.set('n', '<leader>P', builtin.git_files, {})
-    vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Telescope buffers' })
+    vim.keymap.set('n', '<leader>O', builtin.git_files, {})
+    vim.keymap.set('n', '<leader>B', builtin.buffers, { desc = 'Telescope buffers' })
+    -- vim.keymap.set('n', '<leader>f', builtin.live_grep, {})
 
-     vim.keymap.set('n', '<leader>p', function()
+    vim.keymap.set('n', '<leader>F', function()
       builtin.grep_string({ search = vim.fn.input("Grep > ") })
     end)
 
-    -- vim.keymap.set('n', '<leader>pws', function()
-    --   local word = vim.fn.expand("<cword>")
-    --   builtin.grep_string({ search = word })
+     -- vim.keymap.set('n', '<leader>Fw', function()
+
+     --  local word = vim.fn.expand("<cword>")
+     --  builtin.grep_string({ search = word })
     -- end)
 
-    -- vim.keymap.set('n', '<leader>pWs', function()
-    --   local word = vim.fn.expand("<cWORD>")
-    --   builtin.grep_string({ search = word })
+    -- vim.keymap.set('n', '<leader>fw', function()
+     --  local word = vim.fn.expand("<cWORD>")
+     --  builtin.grep_string({ search = word })
     -- end)
 
     -- Toggle previous & next buffers stored within Harpoon list

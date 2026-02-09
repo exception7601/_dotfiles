@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "context7": {
+      "tools": [
+        "all"
+      ],
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {}
+    },
+    "gh_grep": {
+      "tools": [
+        "all"
+      ],
+      "type": "http",
+      "url": "https://mcp.grep.app",
+      "headers": {}
+    },
+    "playwright": {
+      "tools": [
+        "all"
+      ],
+      "type": "local",
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    },
+    "xcode": {
+      "type": "stdio",
+      "command": "xcrun",
+      "tools": [
+        "all"
+      ],
+      "args": ["mcpbridge"]
+    }
+  }
+}
+

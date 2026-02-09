@@ -62,7 +62,9 @@ alias grb="git branch --sort=committerdate | tail -10 | more"
 alias fox='open -a Firefox.app'
 alias n='nvim'
 alias v='nvim'
+alias vim='nvim'
 alias cask='brew cask'
+
 
 # Fastlane
 alias f='fastlane'
@@ -90,17 +92,18 @@ alias pbc=pastetoclipboard
 alias _ab='ab -n 100 -c 10'
 alias _pdftohtml='pdftohtml -c -s -noframes -nodrm -p' 
 
-alias _tv='adb connect tv.4nd.xyz:5555'
+alias _tv='adb connect h313-box.lan:5555'
 # Download playlist music 
 alias _yt-dlp="yt-dlp --config-locations $HOME/.config/yt-dlp/playlist"
 alias yt-dla="yt-dlp --config-locations $HOME/.config/yt-dlp/ariac"
 
 cpr() {
-  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"
+  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@" pi:/mnt/Kingston/public/ 
 } 
-mvr() {
-  rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
-}
+
+# mvr() {
+#   rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"
+# }
 
 # tat: tmux attach
 function tmux-project {
@@ -112,3 +115,4 @@ function tmux-project {
     tmux new-session -s "$name"
   fi
 }
+alias mpv=/Applications/mpv.app/Contents/MacOS/mpv

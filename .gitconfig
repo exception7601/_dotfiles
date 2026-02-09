@@ -1,9 +1,7 @@
 [user]
 	name = exception7601
-	email = 77030548+exception7601@users.noreply.github.com
+	email = 77030548+exception7601@users.noreply.github.com 
 	signingkey = 909B8651397BBD4F
-[commit]
-	gpgsign = true
 [init]
 	defaultBranch = main
 [core]

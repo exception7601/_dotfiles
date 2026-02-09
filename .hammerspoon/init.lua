@@ -1,21 +1,23 @@
-
 hs.hotkey.bind({"cmd", "shift"}, "m", function()
-   -- Pega o Discord
-   local myApp = hs.application.applicationsForBundleID('com.hnc.Discord')[1]
-   hs.eventtap.keyStroke({"cmd", "shift"}, "m", 20, myApp)
+  local discord = hs.application.applicationsForBundleID('com.hnc.Discord')[1]
+  discord:activate()
+
+  hs.timer.doAfter(0.2, function()
+    hs.eventtap.keyStroke({"cmd", "shift"}, "m", 0, discord)
+  end)
 end)
 
 -- Bind Command + Enter to open Alacritty using a closure
 hs.hotkey.bind({"cmd"}, "return", function()
-  hs.application.launchOrFocus("Alacritty")
+  hs.application.launchOrFocus("iTerm")
   -- hs.execute("open -na Alacritty")
 end)
 
 -- Atalho para próxima música (Cmd + Shift + >)
 hs.hotkey.bind({"cmd", "shift"}, "right", function()
-  local myApp = hs.application.applicationsForBundleID('com.apple.Music')[1]
-  -- hs.shortcuts.run('Next Music')
-  hs.eventtap.keyStroke({"cmd"}, "right", 20, myApp)
+  local music = hs.application.applicationsForBundleID('com.apple.Music')[1]
+  -- music:activate()
+  hs.eventtap.keyStroke({"cmd"}, "right", 2000, music)
 end)
 
 -- Function to move window to next display
@@ -74,31 +76,10 @@ hs.window.animationDuration = 0
 
 -- local hyper = {'cmd', 'alt'}
 
-function DisconnectBluetooth()
-    hs.alert('Disconnecting Sonys')
-    hs.shortcuts.run("disconnect phone")
-end
-
-function ConnectBluetooth()
-    hs.alert('Connecting Sonys')
-    hs.shortcuts.run("connect phone")
-end
-
-function CaffeinateCallback(eventType)
-  if (eventType == hs.caffeinate.watcher.screensDidSleep) then
-    DisconnectBluetooth()
-  elseif (eventType == hs.caffeinate.watcher.screensDidWake) then
-    ConnectBluetooth()
-  end
-end
-
-hs.hotkey.bind({"cmd", "shift"}, '8', function()
-  ConnectBluetooth()
-end)
-
-hs.hotkey.bind({"cmd", "shift"}, '9', function()
-  DisconnectBluetooth()
-end)
+-- function DisconnectBluetooth()
+--     hs.alert('Disconnecting Sonys')
+--     hs.shortcuts.run("disconnect phone")
+-- end
 
 -- caffeinateWatcher = hs.caffeinate.watcher.new(caffeinateCallback)
 -- caffeinateWatcher:start()
@@ -124,4 +105,56 @@ SetWindowGrid("right",  "1,0 1x2")
 SetWindowGrid("up",     "0,0 2x1")
 SetWindowGrid("down",   "0,1 2x1")
 SetWindowGrid("return", "0,0 2x2")
+
+-- Factory que descobre o nome automaticamente pelo Bundle ID
+function createAppWatcher(bundleId, fridaScriptPath)
+  local fridaTask = nil
+  local appName = hs.application.nameForBundleID(bundleId)
+
+  if not appName then
+    print("Erro: Bundle ID inválido - " .. bundleId)
+    return nil
+  end
+
+  local function activateFrida()
+  
+    if fridaTask then
+      print(appName .. "stop")
+      fridaTask:terminate()
+    end
+
+    fridaTask = hs.task.new("/Users/anderson/.local/bin/frida", nil, {
+      "-n", appName,  -- Usa o nome descoberto automaticamente
+      "-l", fridaScriptPath
+    })
+
+    fridaTask:start()
+    print("Frida ativado para " .. appName .. " (" .. bundleId .. ")")
+  end
+
+   local watcher = hs.application.watcher.new(function(name, eventType, app)
+     if app and app:bundleID() == bundleId then
+       if eventType == hs.application.watcher.launched then
+         print(appName .. " abriu")
+         activateFrida()
+         -- hs.timer.doAfter(2, activateFrida)
+       elseif eventType == hs.application.watcher.terminated then
+          print(appName .. " fechou")
+          if fridaTask then
+            print(appName .. " kill")
+            fridaTask:terminate()
+            fridaTask = nil
+           end
+        end
+      end
+    end)
+
+   watcher:start()
+   -- return watcher
+end
+
+createAppWatcher(
+  "com.apple.ScreenContinuity",
+  "/Users/anderson/iphone-mirroring-aot.js"
+)
 
