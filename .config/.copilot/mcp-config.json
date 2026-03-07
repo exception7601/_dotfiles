@@ -2,23 +2,23 @@
   "mcpServers": {
     "context7": {
       "tools": [
-        "all"
+        "*"
       ],
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
       "headers": {}
     },
     "gh_grep": {
-      "tools": [
-        "all"
-      ],
       "type": "http",
       "url": "https://mcp.grep.app",
-      "headers": {}
+      "headers": {},
+      "tools": [
+        "*"
+      ]
     },
     "playwright": {
       "tools": [
-        "all"
+        "*"
       ],
       "type": "local",
       "command": "npx",
@@ -26,14 +26,15 @@
         "@playwright/mcp@latest"
       ]
     },
-    "xcode": {
+    "mcp_xcode": {
       "type": "stdio",
       "command": "xcrun",
       "tools": [
-        "all"
+        "*"
       ],
-      "args": ["mcpbridge"]
+      "args": [
+        "mcpbridge"
+      ]
     }
   }
 }
-

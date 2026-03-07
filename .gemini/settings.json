@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "context": {
+    "fileName": [
+      "AGENTS.md",
+      "CONTEXT.md",
+      "GEMINI.md"
+    ]
+  },
+  "codebaseInvestigatorSettings": {
+    "enabled": true,
+    "maxNumTurns": 20,
+    "model": "gemini-3.1-pro-preview"
+  },
+  "general": {
+    "vimMode": false,
+    "previewFeatures": true,
+    "sessionRetention": {
+      "enabled": true,
+      "maxAge": "30d",
+      "warningAcknowledged": true
+    },
+    "enableNotifications": true
+  },
+  "experimental": {
+    "skills": true,
+    "enableAgents": true,
+    "plan": true
+  },
+  "model": {
+    "name": "gemini-3.1-pro-preview"
+  }
+}
