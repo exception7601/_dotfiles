@@ -24,15 +24,19 @@ rust = { version = "1.83.0", profile = "minimal" }
 "npm:prettier" = "latest"
 "gem:rufo" = "latest"
 
+"npm:firecrawl-cli" = "latest"
+"npm:@nshipster/sosumi" = "latest"
+# "npm:@sourcegraph/amp" = "latest"
+"npm:@anthropic-ai/claude-code" = "latest"
 "npm:openskills" = "latest"
 "npm:@github/copilot" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:@charmland/crush" = "latest"
 "npm:@google/gemini-cli" = "latest"
 "npm:@openai/codex" = "latest"
-
+"npm:@mariozechner/pi-coding-agent" = "latest"
 "pipx:uv" = "latest"
-
+"pipx:frida-tools" = "latest"
 "npm:go-ios" = "latest"
 # "pipx:pymobiledevice3" = "latest"
 # "pipx:frida-tools" = "latest"

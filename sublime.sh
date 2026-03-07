@@ -10,7 +10,7 @@ declare -a extensions=(
     public.data
     public.html
     com.apple.property-list
-    
+
     .conf
 
     .adl
@@ -112,6 +112,7 @@ declare -a extensions=(
     .yaml
     .ym
     .yml
+    .lua
 )
 
 pwd=`pwd`

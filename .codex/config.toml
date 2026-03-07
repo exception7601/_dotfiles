@@ -1,0 +1,23 @@
+# model = "gpt-5-mini(high)"
+# model_provider = "cliproxyapi"
+# personality = "pragmatic"
+# model_reasoning_effort = "high"
+
+# [model_providers.cliproxyapi]
+# name = "cliproxyapi"
+# base_url = "https://openrouter.4nd.xyz/v1"
+# wire_api = "responses"
+# disable_tools = true
+
+[projects."/Users/anderson"]
+trust_level = "untrusted"
+
+[projects."/Users/anderson/_dotfiles"]
+trust_level = "trusted"
+
+web_search = "live"
+
+[features]
+multi_agent = true
+
+

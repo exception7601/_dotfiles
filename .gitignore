@@ -7,4 +7,10 @@ Library
 
 .config/opencode/package.json
 .config/opencode/bun.lock
+.config/swiftpm/
+.config/neofetch/
 
+.pi/todos
+.pi/agent/auth.json
+.pi/agent/sessions
+.pi/skills

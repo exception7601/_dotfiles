@@ -1,8 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "catppuccin",
-  "plugin": ["opencode-gemini-auth@latest"],
-  "model": "google/gemini-2.5-flash",
+  "model": "gpt-5-mini(high)",
   "autoupdate": false,
   "tui": {
     "scroll_speed": 3,
@@ -12,25 +11,214 @@
     "diff_style": "auto"
   },
 
+  "skills": {
+    "paths": ["~/.agents/skills/"]
+  },
+
   "permission": {
-    "edit": "ask",
     "read": {
       "*": "allow",
       "*.env": "deny",
       "*.env.*": "deny",
       "*.env.example": "allow"
+    },
+    "edit": "ask",
+    "glob": "allow",
+    "grep": "allow",
+    "write": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "task": "allow",
+
+    "skill(commit)": "allow",
+    "skill(worktree)": "allow",
+
+    "mcp__xcode-tools__XcodeGlob": "deny",
+    "mcp__xcode-tools__XcodeGrep": "deny",
+    "mcp__xcode-tools__XcodeLS": "deny",
+    "mcp__xcode-tools__XcodeMakeDir": "deny",
+    "mcp__xcode-tools__XcodeMV": "deny",
+    "mcp__xcode-tools__XcodeRead": "deny",
+    "mcp__xcode-tools__XcodeRM": "deny",
+    "mcp__xcode-tools__XcodeUpdate": "deny",
+    "mcp__xcode-tools__XcodeWrite": "deny",
+
+    "bash": {
+      "bundle exec fastlane": "allow",
+      "bundle exec fastlane *": "allow",
+      "bundle exec pod install *": "allow",
+      "bundle exec rspec *": "allow",
+      "bundle exec rubocop *": "allow",
+      "bundle info *": "allow",
+      "bundle install *": "allow",
+      "cargo *": "allow",
+      "cd *": "allow",
+      "cp *": "allow",
+      "cp -R *": "allow",
+      "claude --version": "allow",
+      "command -v *": "allow",
+      "date *": "allow",
+      "df *": "allow",
+      "diff *": "allow",
+      "du *": "allow",
+      "file *": "allow",
+      "gh api *": "allow",
+      "gh auth status": "allow",
+      "gh issue list *": "allow",
+      "gh issue view *": "allow",
+      "gh label list *": "allow",
+      "gh pr checks *": "allow",
+      "gh pr checkout *": "allow",
+      "gh pr create *": "allow",
+      "gh pr diff *": "allow",
+      "gh pr list *": "allow",
+      "gh pr merge *": "allow",
+      "gh pr view *": "allow",
+      "gh release list *": "allow",
+      "gh release view *": "allow",
+      "gh repo view *": "allow",
+      "gh run list *": "allow",
+      "gh run view *": "allow",
+      "gh search prs *": "allow",
+      "grep *": "allow",
+      "rg *": "allow",
+      "head *": "allow",
+      "git -C * add *": "allow",
+      "git -C * branch": "allow",
+      "git -C * branch *": "allow",
+      "git -C * check-ignore *": "allow",
+      "git -C * cherry-pick *": "allow",
+      "git -C * clone *": "allow",
+      "git -C * commit *": "allow",
+      "git -C * config --get *": "allow",
+      "git -C * diff": "allow",
+      "git -C * diff *": "allow",
+      "git -C * fetch": "allow",
+      "git -C * fetch *": "allow",
+      "git -C * log": "allow",
+      "git -C * log *": "allow",
+      "git -C * merge *": "allow",
+      "git -C * merge-base *": "allow",
+      "git -C * mv *": "allow",
+      "git -C * pull": "allow",
+      "git -C * pull *": "allow",
+      "git -C * push": "allow",
+      "git -C * push *": "allow",
+      "git -C * rebase *": "allow",
+      "git -C * remote": "allow",
+      "git -C * remote *": "allow",
+      "git -C * rev-parse *": "allow",
+      "git -C * show": "allow",
+      "git -C * show *": "allow",
+      "git -C * stash": "allow",
+      "git -C * stash *": "allow",
+      "git -C * status": "allow",
+      "git -C * status *": "allow",
+      "git -C * switch *": "allow",
+      "git -C * symbolic-ref *": "allow",
+      "git -C * tag": "allow",
+      "git -C * tag *": "allow",
+      "git -C * worktree *": "allow",
+      "git add *": "allow",
+      "git branch": "allow",
+      "git branch *": "allow",
+      "git check-ignore *": "allow",
+      "git cherry-pick *": "allow",
+      "git clone *": "allow",
+      "git commit *": "allow",
+      "git config --get *": "allow",
+      "git diff": "allow",
+      "git diff *": "allow",
+      "git fetch": "allow",
+      "git fetch *": "allow",
+      "git log": "allow",
+      "git log *": "allow",
+      "git merge *": "allow",
+      "git merge-base *": "allow",
+      "git mv *": "allow",
+      "git pull": "allow",
+      "git pull *": "allow",
+      "git push": "allow",
+      "git push *": "allow",
+      "git rebase *": "allow",
+      "git remote": "allow",
+      "git remote *": "allow",
+      "git rev-parse *": "allow",
+      "git show": "allow",
+      "git show *": "allow",
+      "git stash": "allow",
+      "git stash *": "allow",
+      "git status": "allow",
+      "git status *": "allow",
+      "git switch *": "allow",
+      "git symbolic-ref *": "allow",
+      "git tag": "allow",
+      "git tag *": "allow",
+      "git worktree *": "allow",
+      "launchctl list *": "allow",
+      "ln *": "allow",
+      "ls *": "allow",
+      "make *": "allow",
+      "man *": "allow",
+      "mkdir *": "allow",
+      "mkdir -p *": "allow",
+      "pwd *": "allow",
+      "readelf *": "allow",
+      "rbenv install": "allow",
+      "rbenv install *": "allow",
+      "rbenv version": "allow",
+      "rbenv versions": "allow",
+      "ruby --version": "allow",
+      "sort": "allow",
+      "sort *": "allow",
+      "source *": "allow",
+      "swift build *": "allow",
+      "swift package *": "allow",
+      "swift test *": "allow",
+      "tail *": "allow",
+      "test *": "allow",
+      "tree *": "allow",
+      "type *": "allow",
+      "uname *": "allow",
+      "which *": "allow",
+      "xcbeautify *": "allow",
+      "xcodebuild *": "allow",
+      "xcrun simctl list devices available": "allow",
+      "xcrun xcresulttool *": "allow",
+
+      "curl * | bash*": "deny",
+      "curl * | sh*": "deny",
+      "curl * | zsh*": "deny",
+      "find * -delete *": "deny",
+      "git -C * clean -f*": "deny",
+      "git -C * push * --force": "deny",
+      "git -C * push * --force-if-includes*": "deny",
+      "git -C * push * --force-with-lease*": "deny",
+      "git -C * push * -f": "deny",
+      "git clean -f*": "deny",
+      "git push * --force": "deny",
+      "git push * --force-if-includes*": "deny",
+      "git push * --force-with-lease*": "deny",
+      "git push * -f": "deny",
+      "rm *": "deny",
+      "xargs rm *": "deny",
+
+      "git -C * branch -D *": "ask",
+      "git -C * checkout -- *": "ask",
+      "git -C * push * --delete *": "ask",
+      "git -C * push origin :*": "ask",
+      "git -C * reset --hard*": "ask",
+      "git -C * stash clear*": "ask",
+      "git -C * stash drop*": "ask",
+      "git branch -D *": "ask",
+      "git checkout -- *": "ask",
+      "git push * --delete *": "ask",
+      "git push origin :*": "ask",
+      "git reset --hard*": "ask",
+      "git stash clear*": "ask",
+      "git stash drop*": "ask"
     }
   },
-
-  "server": {
-    "port": 4096,
-    "hostname": "0.0.0.0",
-    "mdns": true,
-    "cors": ["http://localhost:5173"]
-  },
-
-  "default_agent": "plan",
-
   "agent": {
     "code-reviewer": {
       "description": "Reviews code for best practices and potential issues",
@@ -38,20 +226,15 @@
       "prompt": "You are a code reviewer. Focus on security, performance, and maintainability.",
       "tools": {
         "write": false,
-        "edit": false,
-      },
-    },
-
-
+        "edit": false
+      }
+    }
   },
 
-  "disabled_providers": ["openai", "gemini"],
-
   "provider": {
-
     "openrouter": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Openrouter CLI-Proxy ",
+      "name": "CLI-Proxy",
       "options": {
         "baseURL": "https://openrouter.4nd.xyz/v1",
         "apiKey": "{env:ANTHROPIC_API_KEY}",
@@ -60,280 +243,44 @@
         }
       },
       "models": {
-        "grok-code-fast-1": {
-          "name": "CLI-Proxy - Grok Code Fast 1",
-          "limit": {
-            "context": 256000,
-            "output": 4096
-          }
+        "openai-gpt-5.1-codex-mini(auto)": {
+          "name": "GPT-5.1 Codex mini_"
         },
-        "gpt-4.1": {
-          "name": "CLI-Proxy - GPT-4.1",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
+        "openai-gpt-5.3-codex": {
+          "name": "GPT-5.3 Codex_"
         },
-        "gpt-4o": {
-          "name": "CLI-Proxy - GPT-4o",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
+        "openai-gpt-5.4(high)": {
+          "name": "GPT-5.4_"
         },
-        "gpt-5.2": {
-          "name": "CLI-Proxy - GPT-5.2",
-          "limit": {
-            "context": 200000,
-            "output": 4096
-          }
-        },
-        "gpt-5.2-codex": {
-          "name": "CLI-Proxy - GPT-5.2 Codex",
-          "limit": {
-            "context": 200000,
-            "output": 4096
-          }
-        },
-        "claude-haiku-4.5": {
-          "name": "CLI-Proxy - Claude Haiku 4.5",
-          "limit": {
-            "context": 200000,
-            "output": 4096
-          }
-        },
-        "claude-opus-4.5": {
-          "name": "CLI-Proxy - Claude Opus 4.5",
-          "limit": {
-            "context": 200000,
-            "output": 4096
-          }
-        },
-        "claude-sonnet-4.5": {
-          "name": "CLI-Proxy - Claude Sonnet 4.5",
-          "limit": {
-            "context": 200000,
-            "output": 4096
-          }
-        },
-        "gemini-2.5-pro": {
-          "name": "CLI-Proxy - Gemini 2.5 Pro",
-          "limit": {
-            "context": 1000000,
-            "output": 4096
-          }
-        },
-        "gemini-3-flash": {
-          "name": "CLI-Proxy - Gemini 3 Flash",
-          "limit": {
-            "context": 1000000,
-            "output": 4096
-          }
-        },
-        "gemini-3-pro": {
-          "name": "CLI-Proxy - Gemini 3 Pro",
-          "limit": {
-            "context": 1000000,
-            "output": 4096
-          }
-        },
-        "glm4.7": {
-          "name": "CLI-Proxy - GLM 4.7",
-          "limit": {
-            "context": 128000,
-            "output": 16384
-          }
-        },
-        "kimi-k2": {
-          "name": "CLI-Proxy - Kimi K2.5",
-          "limit": {
-            "context": 128000,
-            "output": 16384
-          }
-        },
-        "gemini-2.5-flash": {
-          "name": "CLI-Proxy - Gemini 2.5 Flash",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "claude-opus-4.1": {
-          "name": "CLI-Proxy - Claude Opus 4.1",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gemini-3-flash-preview": {
-          "name": "CLI-Proxy - Gemini 3 Flash Preview",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gpt-5-mini": {
-          "name": "CLI-Proxy - Gpt 5 Mini",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gpt-5.1-codex": {
-          "name": "CLI-Proxy - Gpt 5.1 Codex",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gemini-2.5-flash-lite": {
-          "name": "CLI-Proxy - Gemini 2.5 Flash Lite",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gpt-oss-120b-medium": {
-          "name": "CLI-Proxy - Gpt Oss 120B Medium",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "tab_flash_lite_preview": {
-          "name": "CLI-Proxy - Tab_Flash_Lite_Preview",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "copilot-gpt5": {
-          "name": "CLI-Proxy - Copilot Gpt5",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gpt-5.1-codex-max": {
-          "name": "CLI-Proxy - Gpt 5.1 Codex Max",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gemini-3-pro-image": {
-          "name": "CLI-Proxy - Gemini 3 Pro Image",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gpt-5.1-codex-mini": {
-          "name": "CLI-Proxy - Gpt 5.1 Codex Mini",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "claude-sonnet-4": {
-          "name": "CLI-Proxy - Claude Sonnet 4",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "claude-opus-4-5-thinking": {
-          "name": "CLI-Proxy - Claude Opus 4_5 Thinking",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "claude-sonnet-4-5": {
-          "name": "CLI-Proxy - Claude Sonnet 4.5",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gpt-5-codex": {
-          "name": "CLI-Proxy - Gpt 5 Codex",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gpt-5.1": {
-          "name": "CLI-Proxy - Gpt 5.1",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gemini-3-pro-high": {
-          "name": "CLI-Proxy - Gemini 3 Pro High",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "gemini-3-pro-preview": {
-          "name": "CLI-Proxy - Gemini 3 Pro Preview",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "claude-sonnet-4-5-thinking": {
-          "name": "CLI-Proxy - Claude Sonnet 4_5 Thinking",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        },
-        "oswe-vscode-prime": {
-          "name": "CLI-Proxy - Oswe Vscode Prime",
-          "limit": {
-            "context": 128000,
-            "output": 4096
-          }
-        }
-      }
-    },
 
-    "google": {
-      "models": {
-        "gemini-2.5-flash": {
-          "options": {
-            "thinkingConfig": {
-              "thinkingBudget": 8192,
-              "includeThoughts": true
-            }
-          }
+        "gpt-5-mini(high)": {
+          "name": "GPT-5 mini_"
         },
-        "gemini-2.5-pro": {
-          "options": {
-            "thinkingConfig": {
-              "thinkingBudget": 8192,
-              "includeThoughts": true
-            }
-          }
+        "claude-sonnet-4.6(high)": {
+          "name": "Claude Sonnet 4.6_"
         },
-        "gemini-3-flash-preview": {
-          "options": {
-            "thinkingConfig": {
-              "thinkingLevel": "high",
-              "includeThoughts": true
-            }
-          }
+
+        "google-gemini-3-flash-preview": {
+          "name": "Gemini 3 flash_"
         },
-        "gemini-3-pro-preview": {
-          "options": {
-            "thinkingConfig": {
-              "thinkingLevel": "high",
-              "includeThoughts": true
-            }
-          }
+        "google-gemini-3.1-pro-preview": {
+          "name": "Gemini 3.1 pro_"
+        },
+
+        "gemini-3.1-pro-high": {
+          "name": "Antigravity - Gemini 3.1 High"
+        },
+        "gemini-3.1-pro-low": {
+          "name": "Antigravity - Gemini 3.1 Low"
+        },
+        "antigravity-gemini-3-flash(high)": {
+          "name": "Antigravity - Gemini 3 flash"
+        },
+        "antigravity-claude-sonnet-4-6": {
+          "name": "Antigravity - Claude Sonnet 4.6"
+        },
+        "antigravity-claude-opus-4-6-thinking": {
+          "name": "Antigravity - Claude Opus 4.6"
         }
       }
     }
@@ -370,10 +317,7 @@
 
     "playwright": {
       "type": "local",
-      "command": [
-        "npx",
-        "@playwright/mcp@latest"
-      ],
+      "command": ["npx", "@playwright/mcp@latest"],
       "enabled": false
     }
   },

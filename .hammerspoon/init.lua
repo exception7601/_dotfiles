@@ -123,7 +123,7 @@ function createAppWatcher(bundleId, fridaScriptPath)
       fridaTask:terminate()
     end
 
-    fridaTask = hs.task.new("/Users/anderson/.local/bin/frida", nil, {
+    fridaTask = hs.task.new("/Users/anderson/.local/share/mise/installs/pipx-frida-tools/latest/bin/frida", nil, {
       "-n", appName,  -- Usa o nome descoberto automaticamente
       "-l", fridaScriptPath
     })
@@ -152,6 +152,11 @@ function createAppWatcher(bundleId, fridaScriptPath)
    watcher:start()
    -- return watcher
 end
+
+-- createAppWatcher(
+--   "com.apple.systempreferences",
+--   "/Users/anderson/spoof-serial.js"
+-- )
 
 createAppWatcher(
   "com.apple.ScreenContinuity",

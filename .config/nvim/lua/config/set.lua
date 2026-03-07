@@ -1,10 +1,9 @@
-
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
--- Ident 
+-- Ident
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -32,7 +31,7 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 local space = "·"
-vim.opt.listchars:append {
+vim.opt.listchars:append({
   tab = "» ",
   lead = space,
   leadmultispace = space,
@@ -42,9 +41,8 @@ vim.opt.listchars:append {
   eol = "¬",
   -- extends = ">",
   -- precedes = "<",
-  nbsp = "_"
-}
-
+  nbsp = "_",
+})
 
 vim.opt.list = true
 
@@ -68,23 +66,23 @@ local home = os.getenv("HOME")
 vim.opt.spellfile = home .. "/.vim/spell/custom-spell.utf-8.add"
 
 local function set_spell_for_window()
-    vim.opt_local.spell = true
-    vim.opt_local.spelllang = "en_us"
+  vim.opt_local.spell = true
+  vim.opt_local.spelllang = "en_us"
 end
 
 -- I haven't figured out a way to have good spell checking for code, so for now
 -- only check spelling on 'text' files
 --
 -- TODO: extract lang value in a constant
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.md",
-  callback = set_spell_for_window
+  callback = set_spell_for_window,
 })
 
 -- Check spelling on commit messages too
 vim.api.nvim_create_autocmd("BufRead", {
   pattern = "COMMIT_EDITMSG",
-  callback = set_spell_for_window
+  callback = set_spell_for_window,
 })
 
 -- Complete for insertion mode CTRL-Nou CTRL-P
@@ -101,21 +99,21 @@ local filetypes = {
   "Matchfile",
   "Snapfile",
   "Pluginfile",
-  "Dangerfile"
+  "Dangerfile",
 }
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = filetypes,
   callback = function()
     vim.bo.filetype = "ruby"
   end,
 })
 
-vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = ".swift-format",
-  callback = function ()
+  callback = function()
     vim.bo.filetype = "json"
-  end
+  end,
 })
 
 -- Highlight Pods.WORKSPACE as a Starlark file
@@ -143,10 +141,16 @@ vim.g.netrw_winsize = 25
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "swift",
   callback = function()
-    vim.opt_local.commentstring = '// %s'
+    vim.opt_local.commentstring = "// %s"
     vim.opt_local.tabstop = 2
     vim.opt_local.shiftwidth = 2
     vim.opt_local.softtabstop = 2
     vim.opt_local.expandtab = true
-  end
+  end,
+})
+
+vim.filetype.add({
+  extension = {
+    liquid = "liquid",
+  },
 })

@@ -10,7 +10,7 @@ alias xbo='open -a /Applications/Xcode-beta.app .'
 
 # pods
 alias pii='pod install'
-alias pi='pod install && xco'
+# alias pi='pod install && xco'
 alias xt='xctool test'
 
 # git basic
