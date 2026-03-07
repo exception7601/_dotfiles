@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "skills": {
+    "firecrawl": {
+      "source": "firecrawl/cli",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/firecrawl/cli.git",
+      "skillPath": "skills/firecrawl-cli/SKILL.md",
+      "skillFolderHash": "304808769a67b12b27bdb48daca9ef1cfffa7b07",
+      "pluginName": "firecrawl",
+      "installedAt": "2026-03-07T21:38:39.762Z",
+      "updatedAt": "2026-03-07T21:38:39.762Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "cline",
+    "codex",
+    "cursor",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode"
+  ]
+}
