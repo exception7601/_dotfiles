@@ -18,11 +18,14 @@ return {
     config.defaults.keymap.builtin["<c-b>"] = "preview-page-up"
 
     fzf.setup({
-      -- winopts = {
-      --   height = 0.8, width = 0.8,
-      --   row = 0.5, col = 0.5,
-      --   preview = { scrollchars = { "┃", "" } },
-      -- },
+      winopts = {
+        height = 0.8, width = 0.8,
+        row = 0.5, col = 0.5,
+        preview = {
+          layout = "horizontal",
+          scrollchars = { "┃", "" }
+        },
+      },
       grep = { hidden = true },
       fzf_opts = { ["--no-scrollbar"] = "" },
       fzf_tmux_opts = { ["-p"] = "80%,80%", ["--margin"] = "0,0" },

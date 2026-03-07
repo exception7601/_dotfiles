@@ -1,0 +1,57 @@
+{
+  "providers": {
+    "ollama": {
+      "baseUrl": "https://openrouter.4nd.xyz/v1",
+      "apiKey": "_",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "google-gemini-3.1-pro-preview",
+          "capabilities": {
+            "toolUse": true,
+            "vision": true
+          }
+        },
+        {
+          "id": "openai-gpt-5.1-codex-mini(auto)"
+        },
+        {
+          "id": "openai-gpt-5.3-codex"
+        },
+        {
+          "id": "openai-gpt-5.4(high)"
+        },
+        {
+          "id": "kimi-k2"
+        },
+        {
+          "id": "gpt-5-mini(high)"
+        },
+        {
+          "id": "claude-sonnet-4.6(high)"
+        },
+        {
+          "id": "google-gemini-3-flash-preview"
+        },
+        {
+          "id": "gemini-3-pro-high"
+        },
+        {
+          "id": "antigravity-gemini-3-flash(high)"
+        },
+        {
+          "id": "antigravity-claude-sonnet-4-6"
+        },
+        {
+          "id": "antigravity-claude-opus-4-6-thinking"
+        },
+        {
+          "id": "gemini-3.1-pro-low"
+        },
+        {
+          "id": "gemini-3.1-pro-high"
+        }
+      ]
+    }
+  }
+}

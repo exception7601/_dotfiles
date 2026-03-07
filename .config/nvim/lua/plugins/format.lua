@@ -13,7 +13,7 @@ return {
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
         swift = { "swift_format" },
         html = { "prettierd", "prettier", stop_after_first = true },
-        json = { "jq" },
+        json = { "prettierd", "prettier", stop_after_first = true },
         yaml = { "prettierd", "prettier", stop_after_first = true },
         sh = { "shfmt" },
         bash = { "shfmt" },

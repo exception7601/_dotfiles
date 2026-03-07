@@ -1,0 +1,1 @@
+/Users/anderson/_dotfiles/.config/agents/AGENTS.md

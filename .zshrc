@@ -83,3 +83,6 @@ else
 fi
 ###-end-opencode-completions-###
 
+
+# Added by Antigravity
+export PATH="/Users/anderson/.antigravity/antigravity/bin:$PATH"
