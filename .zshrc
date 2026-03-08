@@ -53,7 +53,7 @@ export GPG_TTY=$(tty)
 export PATH="$PATH:/Users/anderson/.local/bin"
 export PATH="$PATH:/Users/anderson/.bin"
 
-eval "$(mise activate zsh)" 
+eval "$(mise activate zsh)"
 
 #compdef opencode
 ###-begin-opencode-completions-###

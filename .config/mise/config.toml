@@ -28,7 +28,7 @@ rust = { version = "1.83.0", profile = "minimal" }
 "npm:@nshipster/sosumi" = "latest"
 # "npm:@sourcegraph/amp" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
-"npm:openskills" = "latest"
+"npm:skills" = "latest"
 "npm:@github/copilot" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:@charmland/crush" = "latest"

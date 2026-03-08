@@ -28,7 +28,7 @@ vim.keymap.set("v", "<D-s>", "<Esc>:w<CR>gv")
 -- vim.keymap.set("n","<silent><Leader>r",  ":PlugInstall<CR> | :PlugUpdate<CR>")
 -- vim.keymap.set("n", "J", "mzJ`z")
 
--- Move remaps Center 
+-- Move remaps Center
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
@@ -49,14 +49,14 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 -- "black hole"
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
--- greatest remap ever visual replace 
+-- greatest remap ever visual replace
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- Copy visual mode using Ctr+C
 -- vim.keymap.set("v", "<C-c>", "\"+y")
 
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
--- copia a linha para register do systema 
+-- copia a linha para register do systema
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 -- Função para reselecionar a última seleção visual e comentar
