@@ -10,6 +10,35 @@
       "pluginName": "firecrawl",
       "installedAt": "2026-03-07T21:38:39.762Z",
       "updatedAt": "2026-03-07T21:38:39.762Z"
+    },
+    "skill-creator": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/skill-creator/SKILL.md",
+      "skillFolderHash": "98a510d1cfef9f82c3b1eec200229ca68725e613",
+      "pluginName": "example-skills",
+      "installedAt": "2026-03-07T23:46:58.438Z",
+      "updatedAt": "2026-03-07T23:46:58.438Z"
+    },
+    "swift-concurrency": {
+      "source": "avdlee/swift-concurrency-agent-skill",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/avdlee/swift-concurrency-agent-skill.git",
+      "skillPath": "swift-concurrency/SKILL.md",
+      "skillFolderHash": "0c073fc571f9854aac30cb77cde2fc1daee730ed",
+      "pluginName": "swift-concurrency",
+      "installedAt": "2026-03-07T23:47:47.105Z",
+      "updatedAt": "2026-03-07T23:47:47.105Z"
+    },
+    "sosumi": {
+      "source": "nshipster/sosumi.ai",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/nshipster/sosumi.ai.git",
+      "skillPath": "public/SKILL.md",
+      "skillFolderHash": "2eca03636d5eb1a86d782bd5f0ef826be983bd15",
+      "installedAt": "2026-03-07T23:50:59.793Z",
+      "updatedAt": "2026-03-07T23:50:59.793Z"
     }
   },
   "dismissed": {

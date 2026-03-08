@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.57.0",
   "defaultProvider": "ollama",
-  "defaultModel": "iflow-rome-30ba3b",
+  "defaultModel": "qwen3-coder-plus(high)",
   "theme": "dark",
   "steeringMode": "one-at-a-time",
   "packages": [
