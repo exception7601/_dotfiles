@@ -285,42 +285,7 @@
       }
     }
   },
-
-  "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
-    },
-    "gh_grep": {
-      "type": "remote",
-      "url": "https://mcp.grep.app"
-    },
-
-    "sentry": {
-      "type": "remote",
-      "url": "https://mcp.sentry.dev/mcp",
-      "enabled": false,
-      "oauth": {}
-    },
-
-    "xcode": {
-      "type": "local",
-      "command": ["xcrun", "mcpbridge"],
-      "enabled": true
-    },
-
-    "chrome-devtools": {
-      "type": "local",
-      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
-      "enabled": false
-    },
-
-    "playwright": {
-      "type": "local",
-      "command": ["npx", "@playwright/mcp@latest"],
-      "enabled": false
-    }
-  },
+  "mcp": {},
   "formatter": false,
 
   "lsp": {

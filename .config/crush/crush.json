@@ -13,34 +13,13 @@
     "skills_paths": ["~/.agents/skills/"]
   },
   "mcp": {
-    "gh_grep": {
-      "type": "http",
-      "url": "https://mcp.grep.app"
-    },
-    "sentry": {
-      "type": "http",
-      "url": "https://mcp.sentry.dev/mcp",
-      "disabled": true
-    },
-    "chrome-devtools": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"],
-      "disabled": true
-    },
     "xcode": {
       "type": "stdio",
       "command": "xcrun",
       "args": ["mcpbridge"],
       "disabled": true
-    },
-    "playwright": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["@playwright/mcp@latest"],
-      "disabled": true
     }
-  },
+   },
   "lsp": {
     "typeprof": {
       "disabled": true
