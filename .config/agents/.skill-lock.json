@@ -39,6 +39,15 @@
       "skillFolderHash": "2eca03636d5eb1a86d782bd5f0ef826be983bd15",
       "installedAt": "2026-03-07T23:50:59.793Z",
       "updatedAt": "2026-03-07T23:50:59.793Z"
+    },
+    "chrome-devtools": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/github/awesome-copilot.git",
+      "skillPath": "skills/chrome-devtools/SKILL.md",
+      "skillFolderHash": "1425ccd89c83988f6bdbc9e801f81e9f1faf86ea",
+      "installedAt": "2026-03-08T16:00:58.344Z",
+      "updatedAt": "2026-03-08T16:00:58.344Z"
     }
   },
   "dismissed": {

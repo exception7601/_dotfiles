@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.57.0",
+  "lastChangelogVersion": "0.57.1",
   "defaultProvider": "ollama",
   "defaultModel": "kimi-k2(high)",
   "theme": "dark",
