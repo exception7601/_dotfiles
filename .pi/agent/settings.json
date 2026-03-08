@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.57.0",
   "defaultProvider": "ollama",
-  "defaultModel": "iflow-rome-30ba3b",
+  "defaultModel": "kimi-k2(high)",
   "theme": "dark",
   "steeringMode": "one-at-a-time",
   "packages": [
