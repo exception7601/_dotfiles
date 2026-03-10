@@ -25,5 +25,9 @@
 
 [credentials]
  	helper = osxkeychain
+
 [gpg]
 	program = /usr/local/bin/gpg
+
+[status] 
+	submoduleSummary = true

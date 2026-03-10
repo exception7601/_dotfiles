@@ -6,7 +6,6 @@ dotfiles=(
   'gitignore'
   'ignore'
 
-  'tmux.conf'
   'vimrc'
   'zshrc'
   'zshenv'
@@ -55,14 +54,17 @@ mkdir -p $HOME/.hammerspoon
 ln -s $pwd/.hammerspoon/init.lua $HOME/.hammerspoon/init.lua
 
 # # link folders
-ln -s $pwd/.config $HOME/.config
-ln -s $pwd/.aria2 $HOME/.aria2
-ln -s $pwd/.bin $HOME/.bin
-ln -s $pwd/.config/agents $HOME/.agents
-ln -s $pwd/.pi $HOME/.pi
+ln -sn $pwd/.config $HOME/.config
+ln -sn $pwd/.aria2 $HOME/.aria2
+ln -sn $pwd/.bin $HOME/.bin
+ln -sn $pwd/.config/agents $HOME/.agents
+ln -sn $pwd/.pi $HOME/.pi
+
+# settings
 ln -s $pwd/.gemini/settings.json $HOME/.gemini/settings.json
 ln -s $pwd/.claude/settings.json $HOME/.claude/settings.json
 ln -s $pwd/.codex/config.toml $HOME/.codex/config.toml
+ln -s $HOME/Developer/_dotfiles/.tmux.conf $HOME/.tmux.conf
 
 # context
 ln -s $pwd/.config/agents/AGENTS.md $pwd/.config/opencode/AGENTS.md
@@ -77,3 +79,7 @@ ln -s $pwd/.config/agents/AGENTS.md $HOME/.codex/AGENTS.md
 defaults -currentHost write -g AppleFontSmoothing -int 0
 defaults write com.apple.screencapture location $HOME/Pictures/ScreenShots
 defaults write com.apple.dock autohide -bool true
+
+# mise
+mise trust "$HOME/Developer/_dotfiles/.config/mise/config.toml"
+mise up
