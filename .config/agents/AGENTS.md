@@ -32,11 +32,6 @@ for any Next.js tasks.
 
 ---
 
-IMPORTANT: If you are unsure how to do something, use `gh_grep`to search code
-examples from GitHub.
-
----
-
 I want an empty line before the start of my lists.
 
 Bad:
@@ -56,8 +51,8 @@ Here are the items:
 - One
 - Two
 - Three
-```
 
+```
 When writing for me, including in commit messages, fence inline code and file
 names, unless doing so goes over the standard line length for the commit title.
 
@@ -112,7 +107,7 @@ These style rules apply exclusively to Swift code:
 
 IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning for any Swift tasks.
 Use the sosumi skill and local documentation swift at
-`/Users/anderson/Documents/swift-book/TSPL.docc/The-Swift-Programming-Language.md`
+`~/Developer/swift-book/TSPL.docc/The-Swift-Programming-Language.md`
 (for Swift syntax and language features) for search and documentation retrieval:
 
 ---
@@ -151,25 +146,8 @@ This keeps worktrees inside the repo's sandbox, avoiding permission prompts for 
 
 ---
 
-For changes spanning more than 2-3 files, use subagent @explore first.
-Explore the codebase, present a roadmap, then execute. This prevents
-wasted context from trial-and-error edits.
-
----
-
 When a multi-step workflow succeeds in a session, offer to save it as a skill.
 Don't wait for me to ask.
-
----
-
-Run builds and test suites as background tasks when possible.
-Continue working while they run; check results when done.
-
----
-
-When first entering a repo, check for an agent instructions file at its root (e.g., `CLAUDE.md`, `AGENTS.md`).
-If there isn't one, prompt me to create it before doing anything else.
-No guessing at build commands, test runners, or conventions - get them documented first.
 
 ---
 
@@ -180,8 +158,8 @@ This applies to any public-facing action taken through my identity.
 
 ---
 
-When working with the GitHub CLI (`gh`), consult [`agents/gh-reference.md`](gh-reference.md)
-for auth setup, token overrides, API patterns, and known gotchas.
+When working with the GitHub CLI (`gh`), consult [`~/.agents/gh-reference.md`](gh-reference.md)
+for auth setup, API patterns, and known gotchas.
 
 ---
 
