@@ -20,15 +20,16 @@ rust = { version = "1.83.0", profile = "minimal" }
 "aqua:tamasfe/taplo" = "latest"
 
 "aqua:JohnnyMorganz/StyLua" = "latest"
-"aqua:mvdan/sh" = "latest"
+# "aqua:mvdan/sh" = "latest"
 "npm:prettier" = "latest"
 "gem:rufo" = "latest"
 
 "npm:firecrawl-cli" = "latest"
 "npm:@nshipster/sosumi" = "latest"
-# "npm:@sourcegraph/amp" = "latest"
-"npm:@anthropic-ai/claude-code" = "latest"
 "npm:skills" = "latest"
+"npm:mcporter" = "latest"
+
+"npm:@anthropic-ai/claude-code" = "latest"
 "npm:@github/copilot" = "latest"
 "npm:opencode-ai" = "latest"
 "npm:@charmland/crush" = "latest"
