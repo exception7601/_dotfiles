@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.57.1",
   "defaultProvider": "ollama",
-  "defaultModel": "openai-gpt-5.1-codex-mini(auto)",
+  "defaultModel": "antigravity-gemini-3-flash(high)",
   "theme": "dark",
   "steeringMode": "one-at-a-time",
   "packages": [
