@@ -5,8 +5,10 @@ bun = "latest"
 node = "22"
 python = "3.12"
 ruby = "3.2"
-# go = "1.21"
+go = "1.25"
 rust = { version = "1.83.0", profile = "minimal" }
+
+
 
 # "npm:@zed-industries/vscode-langservers-extracted" = "latest"
 "aqua:LuaLS/lua-language-server" = "latest"
@@ -14,6 +16,7 @@ rust = { version = "1.83.0", profile = "minimal" }
 "npm:bash-language-server" = "latest"
 "npm:@vtsls/language-server" = "latest"
 "npm:yaml-language-server" = "latest"
+
 # "go:github.com/docker/docker-language-server/cmd/docker-language-server" = "latest"
 "aqua:koalaman/shellcheck" = "latest"
 # "gem:ruby-lsp" = "latest"
