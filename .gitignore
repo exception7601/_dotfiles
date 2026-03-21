@@ -23,6 +23,7 @@ Library
 !.config/agents/skills/commit/
 !.config/agents/skills/worktree/
 !.config/agents/AGENTS.md
+!.config/agents/gh-reference.md
 
 .pi/*
 !.pi/agent/
