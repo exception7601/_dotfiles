@@ -209,12 +209,12 @@
       "Bash(git stash drop*)"
     ]
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "enabledPlugins": {
     "swift-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
-  "teammateMode": "in-process",
-  "effortLevel": "high"
+  "teammateMode": "in-process"
 }

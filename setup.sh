@@ -72,6 +72,8 @@ ln -s $pwd/.config/agents/AGENTS.md $pwd/.pi/agent/AGENTS.md
 ln -s $pwd/.config/agents/AGENTS.md $HOME/.gemini/GEMINI.md
 ln -s $pwd/.config/agents/AGENTS.md $HOME/.codex/AGENTS.md
 
+ln -sn $pwd/.config/agents/skills $HOME/.claude/skills
+
 # .ssh
 # cp -r $pwd/.ssh/ $HOME/.ssh
 

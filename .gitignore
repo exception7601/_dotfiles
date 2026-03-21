@@ -5,12 +5,23 @@ Games
 Library
 .local/share/
 
-.config/opencode/package.json
-.config/opencode/bun.lock
-.config/swiftpm/
-.config/neofetch/
+.config/*
 
-.pi/todos
-.pi/agent/auth.json
-.pi/agent/sessions
-.pi/skills
+!.config/mpv/
+!.config/gh/
+!.config/yt-dlp/
+!.config/nvim/
+!.config/crush/crush.json
+!.config/alacritty/alacritty.toml
+!.config/opencode/opencode.json
+!.config/stylua/stylua.toml
+
+!.config/agents/.skill-lock.json
+!.config/agents/skills/commit/
+!.config/agents/skills/worktree/
+!.config/agents/AGENTS.md
+
+.pi/*
+
+!.pi/agent/models.json
+!.pi/agent/settings.json
