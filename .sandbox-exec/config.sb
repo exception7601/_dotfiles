@@ -30,6 +30,8 @@
 
     (subpath "/Library/Preferences")
     (subpath "/Users/anderson/Library/Preferences")
+    (subpath "/private/etc")
+    (subpath "/etc")
 )
 
 (allow file-read-metadata)
