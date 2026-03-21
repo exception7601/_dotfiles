@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/steipete/mcporter/refs/heads/main/mcporter.schema.json",
+  "mcpServers": {
+    "xcode": {
+      "command": ["xcrun", "mcpbridge"],
+      "lifecycle": "keep-alive"
+    },
+
+    "cloudflare": {
+      "command": "npx",
+      "args": ["mcp-remote", "https://browser.mcp.cloudflare.com/mcp"],
+      "lifecycle": "keep-alive"
+    },
+
+    "edit_figma": {
+      "command": "bunx",
+      "args": ["cursor-talk-to-figma-mcp@latest"],
+      "lifecycle": "keep-alive"
+    },
+  }
+}

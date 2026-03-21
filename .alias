@@ -119,4 +119,4 @@ alias mpv=/Applications/mpv.app/Contents/MacOS/mpv
 
 # pi plan mode
 alias _pi='pi --tools read,grep,find,ls'
-
+alias safe-pi='sandbox-exec -D PWD="$PWD" -f /Users/anderson/Developer/_dotfiles/.sandbox-exec/config.sb pi'

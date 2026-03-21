@@ -8,8 +8,6 @@ ruby = "3.2"
 go = "1.25"
 rust = { version = "1.83.0", profile = "minimal" }
 
-
-
 # "npm:@zed-industries/vscode-langservers-extracted" = "latest"
 "aqua:LuaLS/lua-language-server" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
@@ -32,6 +30,7 @@ rust = { version = "1.83.0", profile = "minimal" }
 "npm:skills" = "latest"
 "npm:mcporter" = "latest"
 
+"npm:@anthropic-ai/sandbox-runtime" = "latest"
 "npm:@anthropic-ai/claude-code" = "latest"
 "npm:@github/copilot" = "latest"
 "npm:opencode-ai" = "latest"

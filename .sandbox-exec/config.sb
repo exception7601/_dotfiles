@@ -1,0 +1,59 @@
+(version 1)
+(deny default)
+(import "system.sb")
+
+(allow process-exec*)
+(allow process-fork)
+
+(allow file-read* file-write*
+    (subpath (param "PWD"))
+    (subpath "/Users/anderson/.pi")
+    (subpath "/private/var/folders")
+    (subpath "/var/folders")
+)
+
+(allow file-read*
+    (subpath "/Users/anderson/.agents")
+    (subpath "/Users/anderson/.local/share/mise")
+    (subpath "/Users/anderson/.local/bin")
+    (subpath "/bin")
+    (subpath "/usr/bin")
+    (subpath "/usr/local/bin")
+    (subpath "/opt/homebrew")
+    (subpath "/System/Library/Frameworks")
+    (subpath "/System/Library/PrivateFrameworks")
+
+    (regex #"^/Applications/Xcode.*\.app")
+    (subpath "/Library/Developer/CommandLineTools")
+    (subpath "/usr/libexec")
+
+    (subpath "/Library/Preferences")
+    (subpath "/Users/anderson/Library/Preferences")
+)
+
+(allow file-read-metadata)
+
+(deny file-write*
+  (subpath "/Users/anderson/.ssh")
+  (subpath "/Users/anderson/.gnupg")
+  (subpath "/Users/anderson/Developer/_dotfiles/.sandbox-exec/config.sb")
+  (subpath "/Users/anderson/Developer/_dotfiles/.alias")
+  (subpath "/Users/anderson/Developer/_dotfiles/.zshrc")
+  (subpath "/Users/anderson/Developer/_dotfiles/.zshenv")
+  (subpath "/Users/anderson/Developer/_dotfiles/.ssh/")
+)
+
+(deny file-read*
+    (subpath "/Users/anderson/.ssh")
+    (subpath "/Users/anderson/.gnupg")
+)
+(deny network*)
+(allow network-outbound (remote udp "*:53") (remote tcp "*:53"))
+(allow network-outbound (remote ip "localhost:*"))
+(allow network-inbound (local ip "localhost:*"))
+(allow network-outbound (remote tcp "*:443"))
+
+(allow file-ioctl)
+(allow mach-lookup)
+(allow ipc-posix-shm)
+(allow network-outbound (path "/private/var/run/mDNSResponder"))
