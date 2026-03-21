@@ -10,6 +10,7 @@
     (subpath "/Users/anderson/.pi")
     (subpath "/private/var/folders")
     (subpath "/var/folders")
+    (subpath "/private/tmp")
 )
 
 (allow file-read*
