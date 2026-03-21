@@ -6,10 +6,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/firecrawl/cli.git",
       "skillPath": "skills/firecrawl-cli/SKILL.md",
-      "skillFolderHash": "304808769a67b12b27bdb48daca9ef1cfffa7b07",
-      "pluginName": "firecrawl",
+      "skillFolderHash": "3ceaa1d79467ec25dbf9924a15e4d6326ae9dbeb",
       "installedAt": "2026-03-07T21:38:39.762Z",
-      "updatedAt": "2026-03-07T21:38:39.762Z"
+      "updatedAt": "2026-03-21T17:17:47.719Z"
     },
     "skill-creator": {
       "source": "anthropics/skills",
@@ -26,10 +25,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/avdlee/swift-concurrency-agent-skill.git",
       "skillPath": "swift-concurrency/SKILL.md",
-      "skillFolderHash": "0c073fc571f9854aac30cb77cde2fc1daee730ed",
-      "pluginName": "swift-concurrency",
+      "skillFolderHash": "6768866399ce6d7bf8c6b5a139ee22dd1230099b",
       "installedAt": "2026-03-07T23:47:47.105Z",
-      "updatedAt": "2026-03-07T23:47:47.105Z"
+      "updatedAt": "2026-03-21T17:17:50.989Z"
     },
     "sosumi": {
       "source": "nshipster/sosumi.ai",
@@ -64,4 +62,3 @@
     "opencode"
   ]
 }
-
