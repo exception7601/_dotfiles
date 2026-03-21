@@ -18,12 +18,16 @@ Library
 
 !.config/agents/
 .config/agents/*
-
-!.config/agents/.skill-lock.json
-!.config/agents/skills/commit/
-!.config/agents/skills/worktree/
 !.config/agents/AGENTS.md
 !.config/agents/gh-reference.md
+
+!.config/agents/skills/
+.config/agents/skills/*
+!.config/agents/.skill-lock.json
+!.config/agents/skills/commit/
+!.config/agents/skills/tmux/
+!.config/agents/skills/worktree/
+!.config/agents/skills/mcporter/
 
 .pi/*
 !.pi/agent/
