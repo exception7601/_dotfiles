@@ -1,38 +1,30 @@
 .DS_Store
-node_modules/
-Applications
-Games
-Library
-.local/share/
 
-.config/*
-
-!.config/mpv/
-!.config/gh/
-!.config/yt-dlp/
-!.config/nvim/
+# .config
+.config/**
+!.config/**/
+!.config/mpv/**
+!.config/gh/**
+!.config/yt-dlp/**
+!.config/nvim/**
+!.config/agents/skills/commit/**
+!.config/agents/skills/tmux/**
+!.config/agents/skills/worktree/**
+!.config/agents/skills/mcporter/**
 !.config/crush/crush.json
 !.config/alacritty/alacritty.toml
 !.config/opencode/opencode.json
 !.config/stylua/stylua.toml
-
-!.config/agents/
-.config/agents/*
 !.config/agents/AGENTS.md
 !.config/agents/gh-reference.md
-
-!.config/agents/skills/
-.config/agents/skills/*
 !.config/agents/.skill-lock.json
-!.config/agents/skills/commit/
-!.config/agents/skills/tmux/
-!.config/agents/skills/worktree/
-!.config/agents/skills/mcporter/
 
-.pi/*
+# .pi
+.pi/**
 !.pi/agent/
-.pi/agent/*
-
 !.pi/agent/models.json
 !.pi/agent/settings.json
 
+# macOS metadata
+**/.DS_Store
+**/node_modules/

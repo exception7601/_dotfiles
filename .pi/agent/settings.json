@@ -1,7 +1,7 @@
 {
   "lastChangelogVersion": "0.61.1",
   "defaultProvider": "ollama",
-  "defaultModel": "kimi-k2(high)",
+  "defaultModel": "openai-gpt-5.4-mini(xhigh)",
   "theme": "dark",
   "steeringMode": "one-at-a-time",
   "packages": [
