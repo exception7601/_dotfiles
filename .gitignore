@@ -16,12 +16,18 @@ Library
 !.config/opencode/opencode.json
 !.config/stylua/stylua.toml
 
+!.config/agents/
+.config/agents/*
+
 !.config/agents/.skill-lock.json
 !.config/agents/skills/commit/
 !.config/agents/skills/worktree/
 !.config/agents/AGENTS.md
 
 .pi/*
+!.pi/agent/
+.pi/agent/*
 
 !.pi/agent/models.json
 !.pi/agent/settings.json
+
