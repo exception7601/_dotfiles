@@ -11,6 +11,7 @@
 !.config/agents/skills/tmux/**
 !.config/agents/skills/worktree/**
 !.config/agents/skills/mcporter/**
+!.config/agents/skills/sosumi/**
 !.config/crush/crush.json
 !.config/alacritty/alacritty.toml
 !.config/opencode/opencode.json

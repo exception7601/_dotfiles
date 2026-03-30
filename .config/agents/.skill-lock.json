@@ -6,9 +6,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/firecrawl/cli.git",
       "skillPath": "skills/firecrawl-cli/SKILL.md",
-      "skillFolderHash": "3ceaa1d79467ec25dbf9924a15e4d6326ae9dbeb",
+      "skillFolderHash": "c9653b0d9276d106234c78b72953187ede0e3e63",
       "installedAt": "2026-03-07T21:38:39.762Z",
-      "updatedAt": "2026-03-21T17:17:47.719Z"
+      "updatedAt": "2026-03-30T01:15:40.096Z"
     },
     "skill-creator": {
       "source": "anthropics/skills",
@@ -30,13 +30,13 @@
       "updatedAt": "2026-03-21T17:17:50.989Z"
     },
     "sosumi": {
-      "source": "nshipster/sosumi.ai",
+      "source": "NSHipster/sosumi.ai",
       "sourceType": "github",
-      "sourceUrl": "https://github.com/nshipster/sosumi.ai.git",
+      "sourceUrl": "https://github.com/NSHipster/sosumi.ai.git",
       "skillPath": "public/SKILL.md",
       "skillFolderHash": "2eca03636d5eb1a86d782bd5f0ef826be983bd15",
       "installedAt": "2026-03-07T23:50:59.793Z",
-      "updatedAt": "2026-03-07T23:50:59.793Z"
+      "updatedAt": "2026-03-30T01:16:03.495Z"
     },
     "chrome-devtools": {
       "source": "github/awesome-copilot",
@@ -46,6 +46,26 @@
       "skillFolderHash": "1425ccd89c83988f6bdbc9e801f81e9f1faf86ea",
       "installedAt": "2026-03-08T16:00:58.344Z",
       "updatedAt": "2026-03-08T16:00:58.344Z"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "skillFolderHash": "928950704df8a8b885c03de5da626331e6f29cf8",
+      "pluginName": "example-skills",
+      "installedAt": "2026-03-26T13:20:55.847Z",
+      "updatedAt": "2026-03-26T13:20:55.847Z"
+    },
+    "pdf": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/pdf/SKILL.md",
+      "skillFolderHash": "6369f4649de69bd6857c9bc3b058a77206009238",
+      "pluginName": "document-skills",
+      "installedAt": "2026-03-26T18:51:31.922Z",
+      "updatedAt": "2026-03-26T18:51:31.922Z"
     }
   },
   "dismissed": {
@@ -53,12 +73,15 @@
   },
   "lastSelectedAgents": [
     "amp",
+    "antigravity",
     "cline",
     "codex",
     "cursor",
+    "deepagents",
     "gemini-cli",
     "github-copilot",
     "kimi-cli",
-    "opencode"
+    "opencode",
+    "warp"
   ]
 }

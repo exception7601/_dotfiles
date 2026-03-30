@@ -86,3 +86,6 @@ fi
 
 # Added by Antigravity
 export PATH="/Users/anderson/.antigravity/antigravity/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/anderson/.antigravity/antigravity/bin:$PATH"

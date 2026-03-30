@@ -1,7 +1,6 @@
 Prefer conciseness over verbosity.
 If I need additional details, I'll ask.
 
-
 ---
 
 If I ask you to commit for me, first show me a preview of the message
@@ -25,7 +24,7 @@ Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>
 - Never repeat the "what" in the body; the diff covers that.
 - Titles must stay within the recommended 50 characters.
   Drop backtick fencing from the title if needed to fit.
-
+- Wrap the body text at *72 characters* to maintain readability in terminal windows.
 ---
 
 IMPORTANT: Prefer retrieval-led reasoning over pre-training-led reasoning
@@ -113,11 +112,10 @@ Use the sosumi skill and local documentation swift at
 
 ---
 
-Always use the `/worktree` skill when creating Git worktrees.
+Always use the worktree skill when creating Git worktrees.
 Never run `git worktree add` directly.
 
-Always use Git worktrees for branch work - never work directly on the main branch.
-**Every new task gets its own worktree**, even if you're already inside one.
+**NEVER** create git worktrees automatically.
 A worktree is scoped to a single piece of work; unrelated changes must not land there.
 
 At the start of a feature, project, or plan, create a worktree.
@@ -163,5 +161,4 @@ When working with the GitHub CLI (`gh`), consult [`~/.agents/gh-reference.md`](g
 for auth setup, API patterns, and known gotchas.
 
 ---
-
 

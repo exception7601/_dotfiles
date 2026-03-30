@@ -160,6 +160,6 @@ end
 
 createAppWatcher(
   "com.apple.ScreenContinuity",
-  "/Users/anderson/iphone-mirroring-aot.js"
+  "/Users/anderson/Developer/frida_scripts/stay-on-top-daemon.js"
 )
 
