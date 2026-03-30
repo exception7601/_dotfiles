@@ -13,6 +13,8 @@ declare -a extensions=(
 
     .conf
 
+    .tolm
+    .liquid
     .adl
     .aspx
     .atom
