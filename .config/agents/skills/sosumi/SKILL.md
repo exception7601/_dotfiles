@@ -31,18 +31,18 @@ Use the `sosumi` CLI directly:
 
 ```bash
 # Apple API reference — full URL or path-only both work
-sosumi fetch https://developer.apple.com/documentation/swift/array
-sosumi fetch /documentation/swift/array
+sosumi fetch "https://developer.apple.com/documentation/swift/array"
+sosumi fetch "/documentation/swift/array"
 
 # Human Interface Guidelines
-sosumi fetch /design/human-interface-guidelines/color
+sosumi fetch "/design/human-interface-guidelines/color"
 
 # WWDC video transcript
-sosumi fetch /videos/play/wwdc2021/10133
+sosumi fetch "/videos/play/wwdc2021/10133"
 
 # External Swift-DocC pages
-sosumi fetch https://apple.github.io/swift-argument-parser/documentation/argumentparser
-sosumi fetch https://swiftpackageindex.com/pointfreeco/swift-composable-architecture/1.23.1/documentation/composablearchitecture
+sosumi fetch "https://apple.github.io/swift-argument-parser/documentation/argumentparser"
+sosumi fetch "https://swiftpackageindex.com/pointfreeco/swift-composable-architecture/1.23.1/documentation/composablearchitecture"
 ```
 
 ### Search Examples
@@ -57,8 +57,39 @@ sosumi search "async sequence"
 Use `--json` for structured output when scripting:
 
 ```bash
-sosumi fetch /documentation/swift/array --json
+sosumi fetch "/documentation/swift/array" --json
 sosumi search "SwiftData" --json
+```
+
+## Output & Organization
+
+Unless the user explicitly wants the response returned directly in context, save larger Sosumi results under `.sosumi/`.
+Add `.sosumi/` to `.gitignore`.
+Because `sosumi` doesn't provide an `-o` flag, use shell redirection with quoted targets.
+
+```bash
+mkdir -p .sosumi
+sosumi search "SwiftData" --json > .sosumi/search-swiftdata.json
+sosumi fetch "/documentation/swift/array" > .sosumi/swift-array.md
+sosumi fetch "/documentation/swiftui/view/symboleffect(_:options:value:)" --json > .sosumi/swiftui-symbol-effect.json
+```
+
+Naming conventions:
+
+```
+.sosumi/search-{query}.json
+.sosumi/{framework}-{symbol}.md
+.sosumi/{framework}-{symbol}.json
+```
+
+Never read large saved files all at once.
+Use `wc`, `head`, `grep`, and `jq` to inspect only what you need.
+
+```bash
+wc -l .sosumi/swift-array.md
+head -40 .sosumi/swift-array.md
+grep -n "symbolEffect" .sosumi/swiftui-symbol-effect.json
+jq -r '.results[] | "\(.title): \(.url)"' .sosumi/search-swiftdata.json
 ```
 
 ## Content Types
@@ -73,7 +104,12 @@ sosumi search "SwiftData" --json
 ## Best Practices
 
 - Search first if the exact path is unknown.
+- Always wrap fetch targets in double quotes, including path-only arguments like `"/documentation/..."`.
+- Quoting avoids shell parsing problems for paths and URLs that contain characters like `(`, `)`, `?`, and `&`.
+- Unless the user asks for inline output, save substantial search and fetch results under `.sosumi/` for reuse.
+- Check `.sosumi/` before re-fetching the same page or search query.
 - Fetch targeted symbol pages for coding questions, not top-level framework pages.
+- Prefer official Apple pages and WWDC transcripts over broader search results when both exist.
 - Keep source links in answers so users can verify details.
 
 ## Troubleshooting
@@ -87,3 +123,4 @@ sosumi search "SwiftData" --json
 
 - The host may block access via `robots.txt` or `X-Robots-Tag`.
 - Try another canonical URL for the same symbol.
+- If you already saved prior output in `.sosumi/`, inspect that cache before trying alternate fetches.
