@@ -1,11 +1,12 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
+
   build = ":TSUpdate",
   config = function()
-    require'nvim-treesitter.configs'.setup {
+    require("nvim-treesitter").setup({
       -- A list of parser names, or "all" (the five listed parsers should always be installed)
-      ensure_installed = { "ruby", "swift", "c", "lua", "vim", "vimdoc", "query", "javascript", "bash", "typescript" },
-
+      ensure_installed = { "ruby", "c", "lua", "vim", "vimdoc", "query", "javascript", "bash", "typescript", "swift" },
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = false,
 
@@ -33,25 +34,25 @@ return {
         -- disable = { "c", "rust" },
         -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
         -- disable = function(lang, buf)
-          --     local max_filesize = 100 * 1024 -- 100 KB
-          --     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-          --     if ok and stats and stats.size > max_filesize then
-          --         return true
-          --     end
-          -- end,
+        --     local max_filesize = 100 * 1024 -- 100 KB
+        --     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        --     if ok and stats and stats.size > max_filesize then
+        --         return true
+        --     end
+        -- end,
 
-          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-          -- Using this option may slow down your editor, and you may see some duplicate highlights.
-          -- Instead of true it can also be a list of languages
-          additional_vim_regex_highlighting = false,
-        },
-      }
+        -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+        -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+        -- Using this option may slow down your editor, and you may see some duplicate highlights.
+        -- Instead of true it can also be a list of languages
+        additional_vim_regex_highlighting = false,
+      },
+    })
 
-      -- :TSBufEnable {module} " enable module on current buffer
-      -- :TSBufDisable {module} " disable module on current buffer
-      -- :TSEnable {module} [{ft}] " enable module on every buffer. If filetype is specified, enable only for this filetype.
-      -- :TSDisable {module} [{ft}] " disable module on every buffer. If filetype is specified, disable only for this filetype.
-      -- :TSModuleInfo [{module}] " list information about modules state for each filetype
-  end
+    -- :TSBufEnable {module} " enable module on current buffer
+    -- :TSBufDisable {module} " disable module on current buffer
+    -- :TSEnable {module} [{ft}] " enable module on every buffer. If filetype is specified, enable only for this filetype.
+    -- :TSDisable {module} [{ft}] " disable module on every buffer. If filetype is specified, disable only for this filetype.
+    -- :TSModuleInfo [{module}] " list information about modules state for each filetype
+  end,
 }

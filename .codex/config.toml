@@ -1,3 +1,5 @@
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
 # model = "gpt-5-mini(high)"
 # model_provider = "cliproxyapi"
 # personality = "pragmatic"
@@ -16,6 +18,9 @@ trust_level = "untrusted"
 trust_level = "trusted"
 
 web_search = "live"
+
+[projects."/"]
+trust_level = "trusted"
 
 [features]
 multi_agent = true

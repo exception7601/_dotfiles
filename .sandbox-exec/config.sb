@@ -3,18 +3,21 @@
 (import "system.sb")
 
 (allow process-exec*)
+
 (allow process-fork)
 
 (allow file-read* file-write*
     (subpath (param "PWD"))
-    (subpath "/Users/anderson/.pi")
+    (subpath "/Users/anderson/Developer/_dotfiles/.pi/")
     (subpath "/private/var/folders")
-    (subpath "/var/folders")
-    (subpath "/private/tmp")
+    (subpath "/private/tmp/")
+    (subpath "/Users/anderson/Library/Developer")
+    (subpath "/Users/anderson/Library/Caches/")
+    (subpath "/Users/anderson/Library/org.swift.swiftpm/")
 )
 
 (allow file-read*
-    (subpath "/Users/anderson/.agents")
+    (subpath "/Users/anderson/Developer/_dotfiles/")
     (subpath "/Users/anderson/.local/share/mise")
     (subpath "/Users/anderson/.local/bin")
     (subpath "/bin")
@@ -25,13 +28,17 @@
     (subpath "/System/Library/PrivateFrameworks")
 
     (regex #"^/Applications/Xcode.*\.app")
-    (subpath "/Library/Developer/CommandLineTools")
+    (subpath "/Library/Developer")
     (subpath "/usr/libexec")
+    (subpath "/var/db/xcode_select_link")
 
     (subpath "/Library/Preferences")
     (subpath "/Users/anderson/Library/Preferences")
     (subpath "/private/etc")
     (subpath "/etc")
+
+    (subpath "/Users/anderson/Library/Developer/Toolchains")
+    (subpath "/Library/Developer/Toolchains")
 )
 
 (allow file-read-metadata)
@@ -60,3 +67,4 @@
 (allow mach-lookup)
 (allow ipc-posix-shm)
 (allow network-outbound (path "/private/var/run/mDNSResponder"))
+

@@ -82,6 +82,15 @@ in the repository that you should adopt.
 Example: If a Swift project has .swiftlint.yml ensure the code you write
 matches the preferences specified there validates with linter command.
 
+When editing existing files, use `edit` by default.
+Only rewrite the entire file with `write` when exact replacements are no
+longer reliable or when the structure needs to change broadly.
+In `edit`, prefer small, unique replacements anchored in stable code near
+the change.
+Do not include large unchanged blocks just to connect distant changes.
+When a file needs multiple separate changes, send them in a single `edit`
+call.
+
 ---
 
 When writing Markdown, use [**semantic line breaks**](https://sembr.org/):
