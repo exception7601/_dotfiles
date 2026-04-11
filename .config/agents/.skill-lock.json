@@ -6,9 +6,9 @@
       "sourceType": "github",
       "sourceUrl": "https://github.com/firecrawl/cli.git",
       "skillPath": "skills/firecrawl-cli/SKILL.md",
-      "skillFolderHash": "c9653b0d9276d106234c78b72953187ede0e3e63",
+      "skillFolderHash": "ab99975127871bd71cddc4f511f68ccf59e4b350",
       "installedAt": "2026-03-07T21:38:39.762Z",
-      "updatedAt": "2026-03-30T01:15:40.096Z"
+      "updatedAt": "2026-04-09T13:02:06.360Z"
     },
     "skill-creator": {
       "source": "anthropics/skills",

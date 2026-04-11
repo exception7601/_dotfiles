@@ -19,7 +19,7 @@ Use Sosumi when the request involves any of the following:
 
 ## Core Workflow
 
-1. If you don't know the exact URL, search first with `sosumi search`.
+1. If you don't know the exact URL, search first using the Apple Developer search API via `curl`.
 2. Fetch the best match with `sosumi fetch`.
 3. Prefer specific symbol pages over broad top-level pages.
 
@@ -48,8 +48,10 @@ sosumi fetch "https://swiftpackageindex.com/pointfreeco/swift-composable-archite
 ### Search Examples
 
 ```bash
-sosumi search "SwiftData"
-sosumi search "async sequence"
+curl -s -X POST "https://developer.apple.com/search/services/search.php" \
+  -d "q=SwiftData" \
+  -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15" \
+  -H "Accept: application/json" > .sosumi/search-swiftdata.json
 ```
 
 ### JSON Output
@@ -58,7 +60,6 @@ Use `--json` for structured output when scripting:
 
 ```bash
 sosumi fetch "/documentation/swift/array" --json
-sosumi search "SwiftData" --json
 ```
 
 ## Output & Organization
@@ -69,7 +70,10 @@ Because `sosumi` doesn't provide an `-o` flag, use shell redirection with quoted
 
 ```bash
 mkdir -p .sosumi
-sosumi search "SwiftData" --json > .sosumi/search-swiftdata.json
+curl -s -X POST "https://developer.apple.com/search/services/search.php" \
+  -d "q=SwiftData" \
+  -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15" \
+  -H "Accept: application/json" > .sosumi/search-swiftdata.json
 sosumi fetch "/documentation/swift/array" > .sosumi/swift-array.md
 sosumi fetch "/documentation/swiftui/view/symboleffect(_:options:value:)" --json > .sosumi/swiftui-symbol-effect.json
 ```
@@ -117,7 +121,7 @@ jq -r '.results[] | "\(.title): \(.url)"' .sosumi/search-swiftdata.json
 ### 404 or sparse output
 
 - The path may be incorrect or too broad.
-- Run `sosumi search` first, then fetch a specific result.
+- Run a `curl` search first, then fetch a specific result.
 
 ### External page cannot be fetched
 
