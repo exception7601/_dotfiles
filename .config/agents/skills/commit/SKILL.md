@@ -76,11 +76,13 @@ Do not use another bash tool to write to the file.
 
 ### 5. Stage and Commit
 
-Run:
+Run these sequentially, not in parallel.
 
 ```bash
 git add file1 file2  ...
 ```
+
+Then:
 
 ```bash
 git commit -F /tmp/COMMIT_MSG
@@ -90,8 +92,9 @@ Or with `-C` if working in a worktree:
 
 ```bash
 git [-C <path>] add file1 file2  ...
-
 ```
+
+Then:
 
 ```bash
 git [-C <path>] commit -F /tmp/COMMIT_MSG
@@ -104,8 +107,10 @@ Run `git status` to confirm the commit succeeded.
 ---
 
 ## Constraints
+- **NEVER use command chaining operators** like &&, ;, ||, or |.
 - **Never amend** - always create new commits.
 - **Never use `git --git-dir`** - use `git -C` or `cd` then `git` in separate calls.
 - **Never `cd path && git ...`** - the permission system matches on first token.
+- **Never run `git add` and `git commit` in parallel.**
 - **Never `git add -A`** or **`git add .`** - stage files by name.
 - If there are no changes to commit, say so and stop.
